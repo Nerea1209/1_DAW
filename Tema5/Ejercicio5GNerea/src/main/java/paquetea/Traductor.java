@@ -41,22 +41,22 @@ public class Traductor {
         traductor.borrarEntrada("bank");
         traductor.mostrarDiccionario();
         
-         System.out.println("");
+        System.out.println("");
         
         System.out.println("Modificamos el significado de pâtes");
         traductor.modificarEntrada("pâtes", "pasta");
         traductor.mostrarDiccionario();
         
-         System.out.println("");
+        System.out.println("");
         
         System.out.println("¿Qué significa 'rechnen'? " + traductor.traducirPalabra("rechnen"));
                 
-         System.out.println("");
+        System.out.println("");
         
         System.out.println("-------Palabras extranjeras-------");
         traductor.crearListaPalabrasExtranjeras().forEach(System.out::println);
         
-         System.out.println("");
+        System.out.println("");
         
         System.out.println("-------Palabras españolas-------");
         traductor.crearListaPalabrasEspañolas().forEach(System.out::println);
