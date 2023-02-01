@@ -23,13 +23,16 @@ public class Traductor {
     
     public static void main(String[] args) {
         
+        // Creamos traductor por defecto
         Traductor traductor = new Traductor();
+        
+        // Guardamos 10 entradas
         traductor.guardarEntrada("alphabet", "abecedario");
         traductor.guardarEntrada("árvore", "árbol");
         traductor.guardarEntrada("tavolo", "mesa");
         traductor.guardarEntrada("pâtes", "masa");
         traductor.guardarEntrada("collège", "colegio");
-        traductor.guardarEntrada("Prekybos centras", "centro comercial");
+        traductor.guardarEntrada("prekybos centras", "centro comercial");
         traductor.guardarEntrada("bank", "banco");
         traductor.guardarEntrada("l'ordinateur", "ordenador");
         traductor.guardarEntrada("rechnen", "informática");
@@ -65,6 +68,7 @@ public class Traductor {
         
     }
     
+    // MÉTODOS
     public void guardarEntrada(String palabraExtranjera, String palabraEspañol){
         traductor.put(palabraExtranjera, palabraEspañol);
     }
