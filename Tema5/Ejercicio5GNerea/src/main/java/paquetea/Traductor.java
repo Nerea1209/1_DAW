@@ -5,7 +5,9 @@
 
 package paquetea;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -88,12 +90,12 @@ public class Traductor {
         return traductor.get(palabraTraducir);
     }
     
-    public Set<String> crearListaPalabrasExtranjeras(){
-        return traductor.keySet();
+    public List<String> crearListaPalabrasExtranjeras(){
+        return new ArrayList<>(traductor.keySet());
     }
     
-    public Collection<String> crearListaPalabrasEspañolas(){
-        return traductor.values();
+    public List<String> crearListaPalabrasEspañolas(){
+        return new ArrayList<>(traductor.values());
     }
     
     public void mostrarDiccionario(){

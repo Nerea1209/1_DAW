@@ -4,13 +4,14 @@
  */
 package paqueteb;
 
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.Formatter;
+import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 /**
  *
@@ -18,55 +19,65 @@ import java.util.TreeMap;
  */
 public class Loteria {
 
-    private SortedMap<String, Double> loteria = new TreeMap<>();
+    private Map<String, Integer> loteria = new HashMap<>();
     private static Scanner teclado = new Scanner(System.in);
 
     public static void main(String[] args) {
 
         Loteria loteria = new Loteria();
-        loteria.guardarEntrada(generarDecimo(), 400_000);
-        loteria.guardarEntrada(generarDecimo(), 125_000);
-        loteria.guardarEntrada(generarDecimo(), 50_000);
-        loteria.guardarEntrada(generarDecimo(), 20_000);
-        loteria.guardarEntrada(generarDecimo(), 20_000);
-        loteria.guardarEntrada(generarDecimo(), 6_000);
-        loteria.guardarEntrada(generarDecimo(), 6_000);
-        loteria.guardarEntrada(generarDecimo(), 6_000);
-        loteria.guardarEntrada(generarDecimo(), 6_000);
-        loteria.guardarEntrada(generarDecimo(), 6_000);
-        loteria.guardarEntrada(generarDecimo(), 6_000);
-        loteria.guardarEntrada(generarDecimo(), 6_000);
-        loteria.guardarEntrada(generarDecimo(), 6_000);
-        
-        loteria.mostrarPremios();
 
+        for (int i = 0; loteria.loteria.size() <= 1000; i++) {
+            loteria.guardarEntrada(generarDecimo(), generarPremio());
+        }
+
+//        loteria.loteria.forEach((clave, valor) -> System.out.println(clave + "  ------  " + valor));
+//        loteria.guardarEntrada(generarDecimo(), 400_000);
+//        loteria.guardarEntrada(generarDecimo(), 125_000);
+//        loteria.guardarEntrada(generarDecimo(), 50_000);
+//        loteria.guardarEntrada(generarDecimo(), 20_000);
+//        loteria.guardarEntrada(generarDecimo(), 20_000);
+//        loteria.guardarEntrada(generarDecimo(), 6_000);
+//        loteria.guardarEntrada(generarDecimo(), 6_000);
+//        loteria.guardarEntrada(generarDecimo(), 6_000);
+//        loteria.guardarEntrada(generarDecimo(), 6_000);
+//        loteria.guardarEntrada(generarDecimo(), 6_000);
+//        loteria.guardarEntrada(generarDecimo(), 6_000);
+//        loteria.guardarEntrada(generarDecimo(), 6_000);
+//        loteria.guardarEntrada(generarDecimo(), 6_000);
+        loteria.mostrarLoteria();
+//
         String decimoUsuario = pedirDecimoUsuario();
-        loteria.decirPremio(decimoUsuario);
+        int premio = loteria.decirPremio(decimoUsuario);
+        
+        if (premio != 0) {
+            System.out.println("Su premio es " + premio);
+        } else {
+            System.out.println("No tiene ningún premio");
+        }
 
     }
 
-    public Double decirPremio(String decimoUsuario) {
-        double premio = 0;
-        double doubleDecimoUSuario = Double.parseDouble(decimoUsuario);
-        if (recibirPremio(decimoUsuario) == 0){
-            if (this.loteria.get(String.valueOf(doubleDecimoUSuario + 1)) == 400_000 
-                    || this.loteria.get(String.valueOf(doubleDecimoUSuario - 1)) == 400_000) {
-                premio = 2_000;
-                System.out.println("Su premio es " + premio);
-            } else if (this.loteria.get(String.valueOf(doubleDecimoUSuario + 1)) == 125_000 
-                    || this.loteria.get(String.valueOf(doubleDecimoUSuario - 1)) == 125_000) {
-                premio = 1_250;
-                System.out.println("Su premio es " + premio);
-            } else if (this.loteria.get(String.valueOf(doubleDecimoUSuario + 1)) == 50_000 
-                    || this.loteria.get(String.valueOf(doubleDecimoUSuario - 1)) == 50_000) {
-                premio = 960;
-                System.out.println("Su premio es " + premio);
-            } else {
-                System.out.println("No tiene ningún premio.");
-                premio = 0;
-            }
+    public Integer decirPremio(String decimoUsuario) {
+
+//        int intDecimoUSuario = Integer.parseInt(decimoUsuario);
+//        int delante = intDecimoUSuario + 1;
+//        int detras = intDecimoUSuario - 1;
+        if (this.loteria.containsKey(decimoUsuario)) {
+            return this.loteria.get(decimoUsuario);
+//        } else if (this.loteria.get(String.valueOf(delante)) == 400_000
+//                || this.loteria.get(String.valueOf(detras)) == 400_000) {
+//            premio = 2_000;
+//        } else if (this.loteria.get(String.valueOf(delante)) == 125_000
+//                || this.loteria.get(String.valueOf(detras)) == 125_000) {
+//            premio = 1_250;
+//        } else if (this.loteria.get(String.valueOf(delante)) == 50_000
+//                || this.loteria.get(String.valueOf(detras)) == 50_000) {
+//            premio = 960;
+//        } else if(this.loteria.containsKey(delante)){
+//            return this.loteria.get(decimoUsuario);
         }
-        return premio;
+
+        return 0;
     }
 
     public static String pedirDecimoUsuario() {
@@ -85,36 +96,32 @@ public class Loteria {
         return decimo;
     }
 
-    public void guardarEntrada(String decimo, double premio) {
+    public void guardarEntrada(String decimo, int premio) {
         loteria.put(decimo, premio);
     }
 
-    public Set<String> crearListaDecimosPremiados() {
-        return loteria.keySet();
+    public List<String> crearListaDecimosPremiados() {
+        return new ArrayList<>(loteria.keySet());
     }
 
-    public Collection<Double> crearListaPremios() {
-        return loteria.values();
+    public List<Integer> crearListaPremios() {
+        return new ArrayList<>(loteria.values());
     }
 
     public void mostrarLoteria() {
-        loteria.forEach((clave, valor) -> System.out.println(clave + "  ------  " + valor));
+        loteria.forEach((clave, valor) -> System.out.println(clave.formatted("%5d") + "  ------  " + valor));
     }
 
     public static String generarDecimo() {
-        return "" + new Random().nextInt(0, 100000);
+        int aleatorio = new Random().nextInt(0, 100000);
+        Formatter fmt = new Formatter();
+        fmt.format("%05d", aleatorio);
+        return "" + fmt;
     }
-    
-    public void mostrarPremios(){
-         loteria.forEach((clave, valor) -> System.out.println( clave + "  ------  " + valor));
-    }
-    
-    public double recibirPremio(String decimo){
-        if (this.loteria.get(decimo) != null){
-        return this.loteria.get(decimo);
-        } else {
-            return 0;
-        }
+
+    public static Integer generarPremio() {
+        return new Random().nextInt(0, 400000);
+
     }
 
 }

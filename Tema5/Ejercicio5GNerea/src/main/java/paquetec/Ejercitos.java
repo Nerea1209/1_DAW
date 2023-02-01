@@ -23,8 +23,8 @@ public class Ejercitos {
         ejercitos.put(identificador, ejercito);
     }
     
-    public void obtenerEjercito(String nombreEjercito){
-      // Mirar
+    public void obtenerEjercito(int identificador){
+      ejercitos.get(identificador);
     }
     
     public Collection<Ejercito> obtenerEjercitos(){
