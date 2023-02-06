@@ -75,8 +75,8 @@ public class Pila<T> {
         T[] sacarElementos(), saca los elementos de la pila y los devuelve en 
         un array de T. La pila, después de llamar a este método, queda vacía.
      */
-    public T[] sacarElementos() {
-        T[] array = (T[]) pila.toArray();
+    public Object[] sacarElementos() {
+        Object[] array = this.pila.toArray();
 //        Arrays.copyOf(this.pila.toArray(), this.pila.size());
 //        T[] array = new T[this.pila.size()];
 //        for (int i = 0; i < array.length; i++) {
