@@ -5,7 +5,6 @@
 package nerea;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -15,7 +14,7 @@ import java.util.List;
 public class Pila<T> {
 
     private List<T> pila;
-    private final int tamañoPila = 20;
+    private final int tamañoPila = 5;
 
     public Pila() {
         this.pila = new ArrayList<>(tamañoPila);
@@ -25,7 +24,9 @@ public class Pila<T> {
     //La pila siempre se creará vacía.
     // Apilar elemento (en inglés push), lo inserta donde proceda.
     public void push(T elemento) {
-        this.pila.add(elemento);
+        if (this.pila.size() < tamañoPila) {
+            this.pila.add(elemento);
+        }
     }
 
     // Desapilar (en inglés pop), que saca el elemento que toque.
