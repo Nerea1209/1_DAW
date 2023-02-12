@@ -12,14 +12,23 @@ package nerea;
 public class DecimalBinario {
 
     public static void main(String[] args) {
-        System.out.println(decimalABinario(11));
-        
+        System.out.println(decimalABinario(20));
+        System.out.println(decimalABinarioRecursivo(20));
     }
     
-    public static String decimalABinario(double decimal){
+    public static String decimalABinario(int decimal){
         String binario = "";
-        for (double i = decimal;i/2 == 1 || i/2 == 0; i++) {
-            binario += String.valueOf(decimal%2);
+        while(decimal >= 1){
+            binario = String.valueOf(decimal%2) + binario;
+            decimal = decimal / 2;
+        }
+        return binario;
+    }
+    
+    public static String decimalABinarioRecursivo(int decimal){
+         String binario = "";
+        if(decimal >= 1){
+            binario = decimalABinarioRecursivo(decimal/2) + String.valueOf(decimal%2);
         }
         return binario;
     }
