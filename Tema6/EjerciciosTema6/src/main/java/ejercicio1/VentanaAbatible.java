@@ -9,23 +9,25 @@ package ejercicio1;
  * @author nerea
  */
 public class VentanaAbatible extends Ventana {
-
-    public VentanaAbatible(double ancho, double largo, double alturaSobleSuelo) {
-        super(ancho, largo, alturaSobleSuelo);
-    }
     
     public VentanaAbatible() {
         
     }
+
+    public VentanaAbatible(double ancho, double largo, double alturaSobleSuelo, String posicion, Persiana persiana) {
+        super(ancho, largo, alturaSobleSuelo, posicion, persiana);
+    }
     
     @Override
     public void abrir(){
-        System.out.println("La ventana abatible se está abriendo hacia arriba");
+        System.out.println("La ventana abatible " + this.getPosicion() + 
+                " se está abriendo hacia arriba");
     }
     
     @Override
     public void cerrar(){
-        System.out.println("La ventana abatible se está cerrando hacia abajo");
+        System.out.println("La ventana abatible " + this.getPosicion() + 
+                " se está cerrando hacia abajo");
     }
     
 }

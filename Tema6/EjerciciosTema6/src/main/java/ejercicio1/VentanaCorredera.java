@@ -13,18 +13,20 @@ public class VentanaCorredera extends Ventana {
     public VentanaCorredera() {
     }
 
-    public VentanaCorredera(double ancho, double largo, double alturaSobleSuelo) {
-        super(ancho, largo, alturaSobleSuelo);
+    public VentanaCorredera(double ancho, double largo, double alturaSobleSuelo, String posicion, Persiana persiana) {
+        super(ancho, largo, alturaSobleSuelo, posicion, persiana);
     }
 
     @Override
     public void abrir(){
-        System.out.println("La ventana corredera se está abriendo hacia la derecha");
+        System.out.println("La ventana corredera " + this.getPosicion() + 
+                " se está abriendo hacia la derecha");
     }
     
     @Override
     public void cerrar(){
-        System.out.println("La ventana corredera se está cerrando hacia la izquierda");
+        System.out.println("La ventana corredera " + this.getPosicion() + 
+                " se está cerrando hacia la izquierda");
     }
     
 }
