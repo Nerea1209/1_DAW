@@ -10,23 +10,26 @@ package ejercicio1;
  */
 public class VentanaCorredera extends Ventana {
 
+    private int longApertura;
+    
     public VentanaCorredera() {
     }
 
-    public VentanaCorredera(double ancho, double largo, double alturaSobleSuelo, String posicion, Persiana persiana) {
-        super(ancho, largo, alturaSobleSuelo, posicion, persiana);
+    public VentanaCorredera(int longApertura, double ancho, double largo, double alturaSobleSuelo, String posicion, Persiana persiana, boolean estado) {
+        super(ancho, largo, alturaSobleSuelo, posicion, persiana, estado);
+        this.longApertura = longApertura;
     }
 
     @Override
-    public void abrir(){
-        System.out.println("La ventana corredera " + this.getPosicion() + 
-                " se está abriendo hacia la derecha");
+    public void abrir(int numero) {
+       this.setEstado(true);
+       this.longApertura = numero;
     }
-    
+
     @Override
-    public void cerrar(){
-        System.out.println("La ventana corredera " + this.getPosicion() + 
-                " se está cerrando hacia la izquierda");
+    public void cerrar(int numero) {
+       this.setEstado(false);
+       this.longApertura = 0;
     }
     
 }

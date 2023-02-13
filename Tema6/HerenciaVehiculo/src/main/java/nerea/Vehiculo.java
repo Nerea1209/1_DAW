@@ -8,7 +8,7 @@ package nerea;
  *
  * @author nerea
  */
-public class Vehiculo {
+public abstract class Vehiculo {
     
     // Atributos
     private String matricula;
@@ -19,16 +19,13 @@ public class Vehiculo {
     private double tarifa; // Precio alquiler día
     private boolean disponible; // Alquilado o libre
     
-    public void parar(){
-        System.out.println("El vehículo " + this.getMatricula() + " ha parado");
-    }
+    public abstract void parar();
     
-    public void arrancar(){
-        System.out.println("El vehículo " + this.getMatricula() + " está arrancando...");
-    }
+    public abstract void arrancar();
     
     
-    public Vehiculo(String matricula, String bastidor, String marca, String modelo, String color, double tarifa, boolean disponible) {
+    public Vehiculo(String matricula, String bastidor, String marca, String modelo, 
+            String color, double tarifa, boolean disponible) {
         this.matricula = matricula;
         this.bastidor = bastidor;
         this.marca = marca;
@@ -115,18 +112,11 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "matricula=" + matricula + ", bastidor=" + bastidor + ", marca=" + marca + ", modelo=" + modelo + ", color=" + color + ", tarifa=" + tarifa + ", disponible=" + disponible + '}';
+        return "Vehiculo{" + "matricula=" + matricula + ", bastidor=" + 
+                bastidor + ", marca=" + marca + ", modelo=" + modelo + ", color=" + 
+                color + ", tarifa=" + tarifa + ", disponible=" + disponible + '}';
     }
 
-    public Vehiculo copiar(){
-        Vehiculo aux = new Vehiculo(matricula, bastidor, marca, modelo, color, tarifa, disponible);
-        return aux;
-    }
     
-    public static Vehiculo copiar(Vehiculo origen){
-        Vehiculo aux = new Vehiculo(origen.matricula, origen.bastidor, origen.marca,
-                origen.modelo, origen.color, origen.tarifa, origen.disponible);
-        return aux;
-    }
     
 }

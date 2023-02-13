@@ -48,5 +48,15 @@ public class Combustion extends Vehiculo {
     public void repostar(){
         System.out.println("El vehículo " + this.getMatricula() + " está repostando");
     }
+
+    @Override
+    public void parar() {
+        System.out.println("El vehículo de combustión " + this.getMatricula() + " ha parado en seco.");
+    }
+
+    @Override
+    public void arrancar() {
+        System.out.println("El vehículo de combustión " + this.getMatricula() + "ha arrancado con éxito.");
+    }
     
 }

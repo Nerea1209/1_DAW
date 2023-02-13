@@ -16,8 +16,8 @@ public class HerenciaVehiculo {
 
     public static void main(String[] args) {
         
-        Vehiculo v1 = new Vehiculo("iohdsfohr", "2424", 
-                "Ford", "Mondeo", "Burdeos", 121289743, false);
+//        Vehiculo v1 = new Vehiculo("iohdsfohr", "2424", 
+//                "Ford", "Mondeo", "Burdeos", 121289743, false);
         
         Electrico ve1 = new Electrico(10, 240, 
                 "34423", "123AAA", "Tesla", "Ni idea", 
@@ -28,16 +28,16 @@ public class HerenciaVehiculo {
                 "askdg", "Toyota", "Corolla", "Azul", 
                 123, true);
         
-        System.out.println(v1);
+//        System.out.println(v1);
         System.out.println(ve1);
         System.out.println(vc1);
         
-        v1.arrancar();
+//        v1.arrancar();
         ve1.arrancar();
         vc1.arrancar();
         
         List<Vehiculo> lista = new ArrayList<>();
-        lista.add(v1);
+//        lista.add(v1);
         // Las siguientes líneas son conversiones implícitas
         lista.add(ve1);
         lista.add(vc1);

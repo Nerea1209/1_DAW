@@ -64,5 +64,10 @@ public class Electrico extends Vehiculo {
     public void cambiarBateria(){
         System.out.println("El vehículo " + this.getMatricula() + " está cambiando la batería...");
     }
+
+    @Override
+    public void parar() {
+        System.out.println("El vehículo electrico " + this.getMatricula() + " se ha parado.");
+    }
     
 }

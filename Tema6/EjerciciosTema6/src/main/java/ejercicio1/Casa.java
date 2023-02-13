@@ -22,12 +22,21 @@ public class Casa {
 
     public Casa() {
     }
-    
-    public Casa(double metrosCuadrados, String direccion, int numPlantas) {
-        this.metrosCuadrados = metrosCuadrados;
-        this.direccion = direccion;
-        this.numPlantas = numPlantas;
+
+    public Casa(double metrosCuadrados, String direccion, int numPlantas, Puerta puertas, List<Ventana> ventanas, List<Calefactor> calefactor) {
+        if (!ventanas.isEmpty()){
+            this.metrosCuadrados = metrosCuadrados;
+            this.direccion = direccion;
+            this.numPlantas = numPlantas;
+            this.puertas = puertas;
+            this.ventanas = ventanas;
+            this.calefactor = calefactor;
+        } else {
+            System.out.println("Tiene que tener al menos una ventana");
+        }
     }
+    
+    
 
     public double getMetrosCuadrados() {
         return metrosCuadrados;

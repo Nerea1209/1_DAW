@@ -10,24 +10,29 @@ package ejercicio1;
  */
 public class VentanaAbatible extends Ventana {
     
+    private int gradosApertura;
+    
     public VentanaAbatible() {
         
     }
 
-    public VentanaAbatible(double ancho, double largo, double alturaSobleSuelo, String posicion, Persiana persiana) {
-        super(ancho, largo, alturaSobleSuelo, posicion, persiana);
+    public VentanaAbatible(int gradosApertura, double ancho, double largo, double alturaSobleSuelo, String posicion, Persiana persiana, boolean estado) {
+        super(ancho, largo, alturaSobleSuelo, posicion, persiana, estado);
+        this.gradosApertura = gradosApertura;
     }
     
     @Override
-    public void abrir(){
-        System.out.println("La ventana abatible " + this.getPosicion() + 
-                " se está abriendo hacia arriba");
+    public void abrir(int numero){
+        // Hay que indicar que está abierta y además los grados de apertura
+        // se calculan dividiendo el numero entre 2
+        this.setEstado(true);
+        this.gradosApertura = numero/2;
     }
     
     @Override
-    public void cerrar(){
-        System.out.println("La ventana abatible " + this.getPosicion() + 
-                " se está cerrando hacia abajo");
+    public void cerrar(int numero){
+        this.setEstado(true);
+        this.gradosApertura = 0;
     }
     
 }

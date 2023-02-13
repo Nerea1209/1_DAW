@@ -8,24 +8,28 @@ package ejercicio1;
  *
  * @author nerea
  */
-public class Ventana {
+public abstract class Ventana {
     
     private double ancho;
     private double largo;
     private double alturaSobleSuelo;
     private String posicion;
     private Persiana persiana;
+    private boolean estado;
 
     public Ventana() {
     }
 
-    public Ventana(double ancho, double largo, double alturaSobleSuelo, String posicion, Persiana persiana) {
+    public Ventana(double ancho, double largo, double alturaSobleSuelo, String posicion, Persiana persiana, boolean estado) {
         this.ancho = ancho;
         this.largo = largo;
         this.alturaSobleSuelo = alturaSobleSuelo;
         this.posicion = posicion;
         this.persiana = persiana;
+        this.estado = estado;
     }
+
+    
     public double getAncho() {
         return ancho;
     }
@@ -65,6 +69,15 @@ public class Ventana {
     public void setPosicion(String posicion) {
         this.posicion = posicion;
     }
+    
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
 
     @Override
     public String toString() {
@@ -80,14 +93,8 @@ public class Ventana {
     }
 
     
-    public void abrir(){
-        System.out.println("La ventana " + this.posicion + " se está abriendo");
-    }
-    
-    public void cerrar(){
-        System.out.println("La ventana " + this.posicion + " se está cerrando");
-    }
-
+    public abstract void abrir(int numero);
+    public abstract void cerrar(int numero);
 
     
     
