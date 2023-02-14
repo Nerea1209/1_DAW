@@ -15,8 +15,15 @@ import java.util.TreeMap;
  */
 public class Main {
     
+    private static final int PASAJEROS_MAXIMOS_VAGON = 200;
+    
     public static void main(String[] args) {
-
+        
+        // Tenemos una matriz
+        // Cada fila es un tren
+        // La primera columna es la id del tren
+        // El resto guarda el numPasajeros de cada vagón
+        // Si es 0, no existe ese vagón
         int[][] companiaTransporte = {{0, 195, 36, 0, 0, 0},
         {1, 150, 67, 89, 0, 0},
         {2, 176, 48, 95, 33, 56}};
@@ -26,11 +33,12 @@ public class Main {
         System.out.println("\n La compañía de transporte tiene estos trenes:");
         generarTrenes(companiaTransporte).forEach((key, value) -> System.out.println("Tren " + key + ": " +value));
         
-
     }
 
+    // Si el numero de cagón es mayor que cero, numVagones++
     private static int numVagones(int idTren, int[][] matriz) {
         int numVagones = 0;
+        // Empezamos a mirar desde i=1 porque matriz[0] es la id
         for (int i = 1; i < matriz[idTren].length; i++) {
             if (matriz[idTren][i] > 0) {
                 numVagones++;
@@ -39,8 +47,10 @@ public class Main {
         return numVagones;
     }
 
+    // Suma los pasajeros de cada vagón para saber el total
     private static int pasajerosABordo(int idTren, int[][] matriz) {
         int pasajeros = 0;
+        // Empezamos a mirar desde i=1 porque matriz[0] es la id
         for (int i = 1; i < matriz[idTren].length; i++) {
             pasajeros += matriz[idTren][i];
         }
@@ -58,12 +68,15 @@ public class Main {
 //        return trenes;
 //    }
     
+    // Generamos un map con los datos del tren
+    // key = idTren
+    // value = datos del tren
     public static SortedMap<Integer, Tren> generarTrenes(int[][] matriz) {
         SortedMap<Integer, Tren> trenes = new TreeMap<>();
         for (int i = 0; i < matriz.length; i++) {
            trenes.put(i, new Tren(i,
                     numVagones(i, matriz),
-                    numVagones(i, matriz) * 200,
+                    numVagones(i, matriz) * PASAJEROS_MAXIMOS_VAGON,
                     pasajerosABordo(i, matriz)));
         }
         return trenes;

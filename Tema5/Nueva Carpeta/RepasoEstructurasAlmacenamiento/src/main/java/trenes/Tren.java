@@ -10,14 +10,17 @@ package trenes;
  */
 public class Tren {
     
+    // Atributos encapsulados de la clase Tren
     private int idTren;
     private int numVagones;
     private int numPasajerosTotal; // Considero que en cada vagón entra como máximo 200 pasajeros
     private int pasajerosABordo;
 
+    // Constructor por defecto
     public Tren() {
     }
 
+    // Constructor por parámetros
     public Tren(int idTren, int numVagones, int numPasajerosTotal, int pasajerosABordo) {
         this.idTren = idTren;
         this.numVagones = numVagones;
@@ -25,6 +28,7 @@ public class Tren {
         this.pasajerosABordo = pasajerosABordo;
     }
 
+    // Getters and setters
     public int getIdTren() {
         return idTren;
     }
@@ -53,6 +57,7 @@ public class Tren {
         this.pasajerosABordo = pasajerosABordo;
     }
 
+    // Hash and equals
     @Override
     public int hashCode() {
         int hash = 7;
@@ -75,6 +80,7 @@ public class Tren {
         return this.idTren == other.idTren;
     }
 
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
