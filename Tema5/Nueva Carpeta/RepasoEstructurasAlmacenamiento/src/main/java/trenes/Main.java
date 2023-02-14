@@ -1,0 +1,87 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package trenes;
+
+import java.util.SortedMap;
+import java.util.TreeMap;
+
+
+
+/**
+ *
+ * @author Nerea
+ */
+public class Main {
+    
+    public static void main(String[] args) {
+
+        int[][] companiaTransporte = {{0, 195, 36, 0, 0, 0},
+        {1, 150, 67, 89, 0, 0},
+        {2, 176, 48, 95, 33, 56}};
+
+        imprimirMatriz(companiaTransporte);
+
+        System.out.println("\n La compañía de transporte tiene estos trenes:");
+        generarTrenes(companiaTransporte).forEach((key, value) -> System.out.println("Tren " + key + ": " +value));
+        
+
+    }
+
+    private static int numVagones(int idTren, int[][] matriz) {
+        int numVagones = 0;
+        for (int i = 1; i < matriz[idTren].length; i++) {
+            if (matriz[idTren][i] > 0) {
+                numVagones++;
+            }
+        }
+        return numVagones;
+    }
+
+    private static int pasajerosABordo(int idTren, int[][] matriz) {
+        int pasajeros = 0;
+        for (int i = 1; i < matriz[idTren].length; i++) {
+            pasajeros += matriz[idTren][i];
+        }
+        return pasajeros;
+    }
+
+//    public static Tren[] generarTrenes(int[][] matriz) {
+//        Tren[] trenes = new Tren[matriz.length];
+//        for (int i = 0; i < trenes.length; i++) {
+//            trenes[i] = new Tren(i,
+//                    numVagones(i, matriz),
+//                    numVagones(i, matriz) * 200,
+//                    pasajerosABordo(i, matriz));
+//        }
+//        return trenes;
+//    }
+    
+    public static SortedMap<Integer, Tren> generarTrenes(int[][] matriz) {
+        SortedMap<Integer, Tren> trenes = new TreeMap<>();
+        for (int i = 0; i < matriz.length; i++) {
+           trenes.put(i, new Tren(i,
+                    numVagones(i, matriz),
+                    numVagones(i, matriz) * 200,
+                    pasajerosABordo(i, matriz)));
+        }
+        return trenes;
+    }
+
+    public static void imprimirMatriz(int[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.print(matriz[i][j] + "\t");
+            }
+            System.out.println("");
+        }
+    }
+
+//    public static void imprimirArray(Tren[] array) {
+//        for (int i = 0; i < array.length; i++) {
+//            System.out.println(array[i]);
+//        }
+//    }
+
+}
