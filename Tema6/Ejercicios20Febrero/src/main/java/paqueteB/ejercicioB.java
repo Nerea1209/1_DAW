@@ -50,20 +50,40 @@ public class ejercicioB {
         return texto;
     }
 
-    public static void unicodes(String frase) {
+//    public static void unicodes(String frase) {
+//        List<Integer> unicodes = new ArrayList<>();
+//        for (int i = 0; i < frase.length(); i++) {
+//            if (frase.charAt(i) != ' ') {
+//                int unicode = frase.charAt(i);
+//                unicodes.add(unicode);
+//                System.out.print(unicode);
+//                if (unicode >= 65 && unicode <= 90 || unicode == 165) {
+//                    System.out.println("\tMayúscula");
+//                } else {
+//                    System.out.println("\tMinúscula");
+//                    
+//                }
+//            }
+//
+//        }
+//        System.out.println("Tamaño: " + unicodes.size());
+//    }
+    
+        public static void unicodes(String frase) {
         List<Integer> unicodes = new ArrayList<>();
         for (int i = 0; i < frase.length(); i++) {
             if (frase.charAt(i) != ' ') {
-                int unicode = frase.charAt(i);
+                int unicode = Character.valueOf(frase.charAt(i));
                 unicodes.add(unicode);
                 System.out.print(unicode);
-                if (unicode >= 65 && unicode <= 90 || unicode == 165) {
-                    System.out.println("\tMayúscula");
-                } else {
+                if (Character.isLowerCase(unicode)) {
                     System.out.println("\tMinúscula");
+                } else if(Character.isDigit(unicode)){
+                    System.out.println("\tDigito");
+                } else {
+                    System.out.println("\t Mayúscula");
                 }
             }
-
         }
         System.out.println("Tamaño: " + unicodes.size());
     }
