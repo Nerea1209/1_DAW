@@ -6,14 +6,14 @@ package ejercicio11;
 
 /**
  *
- * @author nerea
+ * @author Nerea
  */
-public class Rectangulo extends Figura {
+public class Romboide extends Figura {
 
-    public Rectangulo() {
+    public Romboide() {
     }
 
-    public Rectangulo(double base, double altura) {
+    public Romboide(double base, double altura) {
         super(base, altura);
     }
     

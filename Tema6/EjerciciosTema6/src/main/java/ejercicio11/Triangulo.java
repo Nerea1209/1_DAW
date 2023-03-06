@@ -6,20 +6,22 @@ package ejercicio11;
 
 /**
  *
- * @author nerea
+ * @author Nerea
  */
-public class Rectangulo extends Figura {
+public class Triangulo extends Figura {
 
-    public Rectangulo() {
+    private final int DIVIDENDO = 2;
+    
+    public Triangulo() {
     }
 
-    public Rectangulo(double base, double altura) {
+    public Triangulo(double base, double altura) {
         super(base, altura);
     }
     
     @Override
     public double calcularArea() {
-        return super.getBase()*super.getAltura();
+        return (super.getBase()*super.getAltura())/DIVIDENDO;
     }
     
 }
