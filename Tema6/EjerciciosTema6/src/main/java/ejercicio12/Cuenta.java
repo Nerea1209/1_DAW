@@ -79,7 +79,10 @@ public abstract class Cuenta {
     
     public abstract void retirarSaldo(double cantidad);
     
-    public abstract void ingresar(double cantidad);
+    public void ingresar(double cantidad){
+        cantidad = Math.abs(cantidad);
+        this.setSaldo(this.getSaldo() + cantidad);
+    }
     
     
     

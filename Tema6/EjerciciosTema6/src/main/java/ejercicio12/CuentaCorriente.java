@@ -10,7 +10,7 @@ package ejercicio12;
  */
 public class CuentaCorriente extends Cuenta {
 
-    private final double INTERES = 1.5;
+    public final double INTERES = 1.5;
     private double saldoMinimo;
 
     public CuentaCorriente() {
@@ -19,10 +19,6 @@ public class CuentaCorriente extends Cuenta {
     public CuentaCorriente(double saldoMinimo, Persona cliente) {
         super(cliente);
         this.saldoMinimo = saldoMinimo;
-    }
-    
-    public double getINTERES() {
-        return INTERES;
     }
 
     public double getSaldoMinimo() {
@@ -61,11 +57,6 @@ public class CuentaCorriente extends Cuenta {
         }
     }
 
-    @Override
-    public void ingresar(double cantidad) {
-        cantidad = Math.abs(cantidad);
-        super.setSaldo(super.getSaldo() + cantidad);
-    }
 
     
     

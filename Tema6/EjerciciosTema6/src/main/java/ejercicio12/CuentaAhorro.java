@@ -63,12 +63,5 @@ public class CuentaAhorro extends Cuenta {
         }
     }
 
-    @Override
-    public void ingresar(double cantidad) {
-        cantidad = Math.abs(cantidad);
-        super.setSaldo(super.getSaldo() + cantidad);
-    }
-
-    
     
 }
