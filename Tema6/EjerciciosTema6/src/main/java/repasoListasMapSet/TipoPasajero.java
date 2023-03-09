@@ -9,5 +9,5 @@ package repasoListasMapSet;
  * @author nerea
  */
 public enum TipoPasajero {
-    PRIMERA, TURISTA;
+    PRIMERA_CLASE, NORMAL;
 }

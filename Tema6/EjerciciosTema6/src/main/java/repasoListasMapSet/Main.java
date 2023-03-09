@@ -20,16 +20,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Pasajero p1 = new Pasajero("Nerea", "López Sánchez", TipoPasajero.TURISTA);
-        Pasajero p2 = new Pasajero("Pepe", "Perez", TipoPasajero.TURISTA);
-        Pasajero p3 = new Pasajero("maria", "jimenez", TipoPasajero.TURISTA);
-        Pasajero p4 = new Pasajero("lucas", "hernandez", TipoPasajero.TURISTA);
-        Pasajero p5 = new Pasajero("miguel", "duran", TipoPasajero.TURISTA);
-        Pasajero p6 = new Pasajero("antonio", "lopez", TipoPasajero.PRIMERA);
-        Pasajero p7 = new Pasajero("juan", "lopez", TipoPasajero.PRIMERA);
-        Pasajero p8 = new Pasajero("ester", "rodriguez", TipoPasajero.PRIMERA);
-        Pasajero p9 = new Pasajero("ismael", "sanchez", TipoPasajero.PRIMERA);
-        Pasajero p10 = new Pasajero("laura", "cendan", TipoPasajero.PRIMERA);
+        Pasajero p1 = new Pasajero("Nerea", "López Sánchez", TipoPasajero.NORMAL);
+        Pasajero p2 = new Pasajero("Pepe", "Perez", TipoPasajero.NORMAL);
+        Pasajero p3 = new Pasajero("maria", "jimenez", TipoPasajero.NORMAL);
+        Pasajero p4 = new Pasajero("lucas", "hernandez", TipoPasajero.NORMAL);
+        Pasajero p5 = new Pasajero("miguel", "duran", TipoPasajero.NORMAL);
+        Pasajero p6 = new Pasajero("antonio", "lopez", TipoPasajero.PRIMERA_CLASE);
+        Pasajero p7 = new Pasajero("juan", "lopez", TipoPasajero.PRIMERA_CLASE);
+        Pasajero p8 = new Pasajero("ester", "rodriguez", TipoPasajero.PRIMERA_CLASE);
+        Pasajero p9 = new Pasajero("ismael", "sanchez", TipoPasajero.PRIMERA_CLASE);
+        Pasajero p10 = new Pasajero("laura", "cendan", TipoPasajero.PRIMERA_CLASE);
 
         List<Pasajero> lista1 = new ArrayList<>();
         List<Pasajero> lista2 = new ArrayList<>();
@@ -93,10 +93,7 @@ public class Main {
     public static Map<Integer, Set<Pasajero>> pasajerosPorVuelo(List<Vuelo> listaVuelos){
         Map<Integer, Set<Pasajero>> map = new TreeMap<>();
         for (Vuelo vuelo : listaVuelos) {
-            Set<Pasajero> pasajeros = new TreeSet<>();
-            for (int i = 0; i < vuelo.getListaPasajeros().size(); i++) {
-                pasajeros.add(vuelo.getListaPasajeros().get(i));
-            }
+            Set<Pasajero> pasajeros = new TreeSet<>(vuelo.getListaPasajeros());
             map.put(vuelo.getCodigo(), pasajeros);
         }
         return map;
