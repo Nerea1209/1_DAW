@@ -35,7 +35,7 @@ public class Robot {
         StringBuilder sb = new StringBuilder();
         sb.append("Robot{");
         sb.append("numSerie=").append(numSerie);
-        sb.append(", porcentajeVida=").append(porcentajeVida);
+        sb.append(",\tporcentajeVida=").append(porcentajeVida);
         sb.append('}');
         return sb.toString();
     }
