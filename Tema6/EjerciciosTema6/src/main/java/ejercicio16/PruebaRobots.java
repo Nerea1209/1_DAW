@@ -28,13 +28,20 @@ public class PruebaRobots {
         System.out.println("¿Cuántos robots tienen el porcentaje de vida mayor del 50%? " + robotsVidaMayor50(lista));
         System.out.println("Número de serie de los tres robots que tienen mayor porcentaje de vida: ");
         imprimirNumSeries3RobotsConMayorVida(lista);
+        Collections.sort(lista, (o1, o2) -> Integer.compare(o1.getNumSerie(), o2.getNumSerie()));
+        System.out.println("Lista ordenada según número de serie");
+        lista.forEach(System.out::println);
+        System.out.println("Búsqueda binaria del robot con numero de serie 3");
+        int pos = Collections.binarySearch(lista, new Robot(3), 
+                (o1, o2) -> Integer.compare(o1.getNumSerie(), o2.getNumSerie()));
+        System.out.println("Se encuentra en la posición " + pos);
     }
     
     public static List<Robot> generarListaAleatoriaRobots(){
         List<Robot> lista = new ArrayList<>();
         Set<Integer> set = new HashSet<>();
         for (int i = 0; set.size() < 20; i++) {
-            int numSerie = new Random().nextInt(1, Integer.MAX_VALUE);
+            int numSerie = new Random().nextInt(1, 21);
             if (!set.contains(numSerie)) {
                 set.add(numSerie);
                 lista.add(new Robot(numSerie));
