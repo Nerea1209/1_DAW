@@ -7,7 +7,6 @@ package daw;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 /**
  *
