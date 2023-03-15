@@ -35,6 +35,36 @@ public class PruebaRobots {
         int pos = Collections.binarySearch(lista, new Robot(3), 
                 (o1, o2) -> Integer.compare(o1.getNumSerie(), o2.getNumSerie()));
         System.out.println("Se encuentra en la posición " + pos);
+        
+        System.out.println("---------------");
+        
+        System.out.println("Robots con más del 50% de vida");
+        for (Robot robot : lista) {
+            if (robot.getPorcentajeVida() >= 50) {
+                System.out.println(robot);
+            }
+        }
+        long cantRobots = lista.stream()
+                .filter((r)-> r.getPorcentajeVida()>= 50)
+                .count();
+        System.out.println(cantRobots);
+        
+        lista.stream()
+                .limit(3) // Para coger los 3 primeros
+                .forEach(r -> System.out.println(r.getNumSerie()));
+    }
+    
+    public static List<Robot> getListaRobots(int num){
+        var listaRobots = new ArrayList<Robot>();
+        Random random = new Random();
+        if (num <= 0) {
+            throw new IllegalArgumentException("El número de robots a crear no es válido");
+        }
+        
+        for (int i = 0; i < num; i++) {
+            listaRobots.add(new Robot(random.nextInt(0, 5000), random.nextInt(1, 101)));
+        }
+        return listaRobots;
     }
     
     public static List<Robot> generarListaAleatoriaRobots(){
@@ -60,6 +90,8 @@ public class PruebaRobots {
         }
         return cont;
     }
+    
+    
     
     public static void imprimirNumSeries3RobotsConMayorVida(List<Robot> lista){
         Collections.sort(lista, 

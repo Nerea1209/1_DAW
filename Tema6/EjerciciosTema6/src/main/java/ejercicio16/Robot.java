@@ -22,6 +22,13 @@ public class Robot {
         this.porcentajeVida = generarVidaAleatorio();
     }
 
+    public Robot(int numSerie, int porcentajeVida) {
+        this.numSerie = numSerie;
+        this.porcentajeVida = porcentajeVida;
+    }
+    
+    
+
     public int getNumSerie() {
         return numSerie;
     }
