@@ -49,8 +49,8 @@ public class Nif {
         return letras[(int)this.numero % 23];
     }
     
-    public final static LocalDate renovar(LocalDate fechaSolicitudRenovacion){
-        return fechaSolicitudRenovacion.plusYears(10);
+    public final void renovar(LocalDate fechaSolicitudRenovacion){
+        this.fechaCaducidad =  fechaSolicitudRenovacion.plusYears(10);
     }
     
     
