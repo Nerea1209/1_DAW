@@ -15,11 +15,15 @@ import java.util.Random;
 public class PruebaCoro {
     
     public static void main(String[] args) {
-        List<Coro> listaCoros = generarCorosAleatorios();
-        listaCoros.forEach(System.out::println);
-        List<Voz> listaVoces = Coro.generarVoces(6);
+//        List<Coro> listaCoros = generarCorosAleatorios();
+//        listaCoros.forEach(System.out::println);
+        System.out.println("Lista de voces");
+        List<Voz> listaVoces = Coro.generarVoces(7);
         listaVoces.forEach(System.out::println);
-        Coro.buscarVozMasRepetida(listaVoces).forEach((key, value) -> System.out.println(key + ": " + value));
+        System.out.println("---------------------------");
+        System.out.println("¿Cuál o cuáles son las voces más repetidas?");
+        Coro.buscarVozMasRepetida(listaVoces).forEach(System.out::println);
+        System.out.println("----------------------");
         System.out.println("Número de coros mixtos posibles: " + Coro.getNumeroCorosMixtos(listaVoces));
     }
     
