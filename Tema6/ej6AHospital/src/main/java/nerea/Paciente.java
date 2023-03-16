@@ -46,7 +46,7 @@ public class Paciente extends Persona implements Nadador{
         } else {
             cura = "no se ha curado";
         }
-        System.out.println("El paciente " + cura + " al tomar " + medicina);
+        System.out.println("El paciente " + cura);
     }
 
     @Override

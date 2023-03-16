@@ -4,10 +4,9 @@
  */
 package nerea;
 
-import java.text.SimpleDateFormat;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -17,71 +16,88 @@ import org.apache.commons.lang3.RandomStringUtils;
  * @author nerea
  */
 public class GestionHospital {
+
+    public static DecimalFormat df = new DecimalFormat("#.00");
     
     public static void main(String[] args) {
-        String randomText = RandomStringUtils.randomAlphabetic(new Random().nextInt(3, 8));
-        long randomNumber = new Random().nextLong(10000000, 100000000);
-        Hospital hospital = new Hospital("Hospital Costa del Sol", 
-                "Calle Andalucía", (int) randomNumber, generarPacientesAleatorios(6), 
-                generarEmpleadosAleatorios(6));
-        
-        Medico medico = (Medico)hospital.getEmpleados().get(4);
-        Paciente paciente = hospital.getPacientes().get(new Random().nextInt(0, 5));
-        medico.tratar(paciente, "Pancetamol");
-        
+
+        Hospital hospital = new Hospital("Hospital Costa del Sol",
+                "Calle Andalucía", (int) new Random().nextLong(10000000, 100000000), generarPacientesAleatorios(6),
+                generarEmpleadosAleatorios(2, 3));
+
+        for (Empleado e : hospital.getEmpleados()) {
+            if (e instanceof Medico m) {
+                m.tratar(hospital.getPacientes()
+                        .get(new Random().nextInt(0, hospital
+                                .getPacientes().size())), 
+                        "Pancetamol");
+                break;
+            }
+        }
+
         for (Empleado empleado : hospital.getEmpleados()) {
-            System.out.println("El empleado " + empleado + 
-                    "tiene un irpf de " + empleado.calcularIRPF());
+            System.out.println("El empleado " + empleado.getNombre()
+                    + " tiene un irpf de " + empleado.calcularIRPF());
         }
         
-        paciente.renovarNif(LocalDate.now());
+        System.out.println(hospital.getPacientes().get(3));
+        hospital.getPacientes().get(3).renovarNif(LocalDate.now());
+        System.out.println(hospital.getPacientes().get(3));
         
+//        Administrativo adm = crearPersonalPASRandom();
+//        adm.registrarDocumento("Compromiso");
+//        
+//        hospital.contratarEmpleado(crearMedicoRandom());
+//        hospital.ingresarPaciente(crearPacienteRandom());
+//        
+//        System.out.println(hospital.toString());
+
     }
-    
-    public static Paciente crearPaciente(){
-        String randomText = RandomStringUtils.random(new Random().nextInt(3, 8));
-        long randomNumber = new Random().nextLong(10000000, 100000000);
-        return new Paciente(String.valueOf(randomNumber), randomText, 
-                randomText, new Nif(randomNumber));
+
+    public static Paciente crearPacienteRandom() {
+        return new Paciente(String.valueOf(new Random().nextLong(10000000, 100000000)),
+                RandomStringUtils.randomAlphabetic(new Random().nextInt(3, 8)),
+                RandomStringUtils.randomAlphabetic(new Random().nextInt(3, 8)),
+                new Nif(new Random().nextLong(10000000, 100000000)));
     }
-    
-    public static Medico crearMedico(){
-        String randomText = RandomStringUtils.random(new Random().nextInt(3, 8));
-        long randomNumber = new Random().nextLong(10000000, 100000000);
-        return new Medico(randomText, randomText, 
-                randomNumber, randomText, randomText, 
-                new Nif(randomNumber));
+
+    public static Medico crearMedicoRandom() {
+        return new Medico(RandomStringUtils.randomAlphabetic(new Random().nextInt(3, 8)),
+                String.valueOf(new Random().nextLong(10000000, 100000000)),
+                Double.parseDouble(df.format(new Random().nextDouble(1080, 4000))),
+                RandomStringUtils.randomAlphabetic(new Random().nextInt(3, 8)),
+                RandomStringUtils.randomAlphabetic(new Random().nextInt(3, 8)),
+                new Nif(new Random().nextLong(10000000, 100000000)));
     }
-    
-    public static Administrativo crearPersonalPAS(){
-        String randomText = RandomStringUtils.random(new Random().nextInt(3, 8));
-        long randomNumber = new Random().nextLong(10000000, 100000000);
-        return new Administrativo(Grupo.randomGroup(), 
-                String.valueOf(randomNumber), 
-                randomNumber, randomText, randomText, 
-                new Nif(randomNumber));
+
+    public static Administrativo crearPersonalPASRandom() {
+        return new Administrativo(Grupo.randomGroup(),
+                String.valueOf(new Random().nextLong(10000000, 100000000)),
+                Double.parseDouble(df.format(new Random().nextDouble(1080, 4000))),
+                RandomStringUtils.randomAlphabetic(new Random().nextInt(3, 8)),
+                RandomStringUtils.randomAlphabetic(new Random().nextInt(3, 8)),
+                new Nif(new Random().nextLong(10000000, 100000000)));
     }
-    
-    public static List<Paciente> generarPacientesAleatorios(int numero){
+
+    public static List<Paciente> generarPacientesAleatorios(int numero) {
         List<Paciente> lista = new ArrayList<>(numero);
         for (int i = 0; i < numero; i++) {
-            lista.add(crearPaciente());
+            lista.add(crearPacienteRandom());
         }
         return lista;
     }
-    
-    public static List<Empleado> generarEmpleadosAleatorios(int numero){
-        List<Empleado> lista = new ArrayList<>(numero);
-        for (int i = 0; i < numero; i++) {
-            boolean empleado = new Random().nextBoolean();
-            if (empleado) {
-                lista.add(crearMedico());
+
+    public static List<Empleado> generarEmpleadosAleatorios(int medicos, int admins) {
+        List<Empleado> lista = new ArrayList<>(medicos + admins);
+        for (int i = 0; i < (medicos + admins); i++) {
+            if (i < medicos) {
+                lista.add(crearMedicoRandom());
             } else {
-                lista.add(crearPersonalPAS());
+                lista.add(crearPersonalPASRandom());
             }
-            
+
         }
         return lista;
     }
-    
+
 }

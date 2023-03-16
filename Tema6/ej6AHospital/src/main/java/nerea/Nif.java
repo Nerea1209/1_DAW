@@ -23,7 +23,7 @@ public class Nif {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Nif = ").append(numero + letra);
+        sb.append("Nif = ").append(numero).append(letra);
         sb.append(", fechaCaducidad=").append(fechaCaducidad);
         return sb.toString();
     }
@@ -63,8 +63,8 @@ public class Nif {
     }
     
     private LocalDate generarFechaAleatoria(){
-        LocalDate start = LocalDate.of(1970, Month.JANUARY, 1);
-        long days = ChronoUnit.DAYS.between(start, LocalDate.now());
+        LocalDate start = LocalDate.of(2022, Month.JANUARY, 1);
+        long days = ChronoUnit.DAYS.between(start, LocalDate.now().plusYears(10));
         return start.plusDays(new Random().nextInt((int) days + 1));
     }
     

@@ -4,6 +4,8 @@
  */
 package nerea;
 
+import static nerea.GestionHospital.df;
+
 /**
  *
  * @author nerea
@@ -46,7 +48,7 @@ public class Administrativo extends Empleado {
 
     @Override
     public double calcularIRPF() {
-        return this.getSalario() * this.grupo.getIrpf();
+        return Double.parseDouble(df.format(this.getSalario() * this.grupo.getIrpf()));
     }
     
 }

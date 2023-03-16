@@ -77,7 +77,7 @@ public abstract class Persona {
         sb.append("Persona: ");
         sb.append("nombre=").append(nombre);
         sb.append(", apellidos=").append(apellidos);
-        sb.append(", nif=").append(nif);
+        sb.append(", ").append(nif);
         return sb.toString();
     }
     

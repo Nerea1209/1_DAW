@@ -4,6 +4,9 @@
  */
 package nerea;
 
+import java.util.Random;
+import static nerea.GestionHospital.df;
+
 /**
  *
  * @author nerea
@@ -39,17 +42,18 @@ public class Medico extends Empleado implements Nadador{
     public void tratar(Paciente paciente, String medicina){
         System.out.println("El médico " + this.getNombre() + " trata a "
         + paciente.getNombre() + " con la medicina " + medicina);
+        Paciente.tomarMedicina(medicina);
     }
     
     @Override
     public double calcularIRPF() {
-        double irpf = 0;
+        double irpf;
         if (this.especialidad.equalsIgnoreCase("cirugía")) {
             irpf = this.getSalario()- (this.getSalario()*0.25);
         } else {
             irpf = this.getSalario()- (this.getSalario()*0.235);
         }
-        return irpf;
+        return Double.parseDouble(df.format(irpf));
     }
 
     @Override
