@@ -10,7 +10,7 @@ import java.util.Random;
  *
  * @author nerea
  */
-public class Paciente extends Persona {
+public class Paciente extends Persona implements Nadador{
     
     private String numeroHistoria;
 
@@ -47,6 +47,11 @@ public class Paciente extends Persona {
             cura = "no se ha curado";
         }
         System.out.println("El paciente " + cura + " al tomar " + medicina);
+    }
+
+    @Override
+    public void nadar() {
+        System.out.println("El paciente nada");
     }
     
     

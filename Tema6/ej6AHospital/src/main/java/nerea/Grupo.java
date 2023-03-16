@@ -4,6 +4,8 @@
  */
 package nerea;
 
+import java.util.Random;
+
 /**
  *
  * @author nerea
@@ -36,5 +38,9 @@ public enum Grupo {
         return sb.toString();
     }
     
+    public static Grupo randomGroup(){
+        Grupo[] grupos = values();
+        return grupos[new Random().nextInt(0, grupos.length)];
+    }
     
 }

@@ -8,7 +8,7 @@ package nerea;
  *
  * @author nerea
  */
-public class Medico extends Empleado {
+public class Medico extends Empleado implements Nadador{
     
     private String especialidad;
 
@@ -50,6 +50,11 @@ public class Medico extends Empleado {
             irpf = this.getSalario()- (this.getSalario()*0.235);
         }
         return irpf;
+    }
+
+    @Override
+    public void nadar() {
+        System.out.println("El médico nada");
     }
     
 }
