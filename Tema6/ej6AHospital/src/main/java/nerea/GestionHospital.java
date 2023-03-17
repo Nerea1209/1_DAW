@@ -17,7 +17,7 @@ import org.apache.commons.lang3.RandomStringUtils;
  */
 public class GestionHospital {
 
-    public static DecimalFormat df = new DecimalFormat("#.00");
+    public static DecimalFormat df = new DecimalFormat("#,00");
     
     public static void main(String[] args) {
 

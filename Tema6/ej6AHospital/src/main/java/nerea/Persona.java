@@ -57,7 +57,7 @@ public abstract class Persona {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
@@ -81,7 +81,7 @@ public abstract class Persona {
         return sb.toString();
     }
     
-    public void renovarNif(LocalDate fechaSolicitud){
+    public final void renovarNif(LocalDate fechaSolicitud){
         this.nif.renovar(fechaSolicitud);
     }
     

@@ -7,6 +7,7 @@ package ej1;
 import daw.Desfibrilador;
 import daw.UtilesDesfibrilador;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -25,15 +26,23 @@ public class Ej1 {
         desfibriladoresOrdenadosSinRepetidos.forEach(System.out::println);
         
         Map<String, Desfibrilador> mapDesfibriladores = mapDesfibriladores(desfibriladoresOrdenadosSinRepetidos);
-        System.out.println(Map.entry(mapDesfibriladores.keySet(), mapDesfibriladores.values()));
+//        System.out.println(Map.entry(mapDesfibriladores.keySet(), mapDesfibriladores.values()));
+        
+        for (Map.Entry<String, Desfibrilador> entry : mapDesfibriladores.entrySet()) {
+            String key = entry.getKey();
+            Desfibrilador val = entry.getValue();
+            System.out.println("Key " + key + " value " + val);
+        }
     }
     
     public static Set<Desfibrilador> desfibriladoresSinRepetidos(Desfibrilador[] desfibriladores){
-        List<Desfibrilador> lista = new ArrayList<>(desfibriladores.length);
-        for (Desfibrilador desfibrilador : desfibriladores) {
-            lista.add(desfibrilador);
-        }
-        return new TreeSet<>(lista);
+//        List<Desfibrilador> lista = new ArrayList<>(desfibriladores.length);
+//        for (Desfibrilador desfibrilador : desfibriladores) {
+//            lista.add(desfibrilador);
+//        }
+//        return new TreeSet<>(lista);
+        return new TreeSet<>(Arrays.asList(desfibriladores));
+        
     }
     
     public static Map<String, Desfibrilador> mapDesfibriladores(Set<Desfibrilador> set){
@@ -44,6 +53,14 @@ public class Ej1 {
             map.put(d.getId(), d);
         }
         return map;
+        
+        // También se puede hacer con un for
+//        Map<String, Desfibrilador> map = new HashMap<>();
+//        
+//        for (Iterator<Desfibrilador> iterador = set.iterator(); iterador.hasNext();) {
+//            Desfibrilador d = iterador.next();
+//            map.put(d.getId(), d);
+//        }
     }
     
 }

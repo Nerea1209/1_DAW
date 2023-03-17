@@ -54,7 +54,6 @@ public class Coro {
     }
     
     public static int getNumeroCorosMixtos(List<Voz> lista){
-        int cont = 0;
         int contratenor = 0;
         int tenor = 0;
         int baritono = 0;
@@ -82,8 +81,7 @@ public class Coro {
         repeticiones.add(contralto);
         
         Collections.sort(repeticiones);
-        cont = repeticiones.get(0);
-        return cont;
+        return repeticiones.get(0);
         
         
         

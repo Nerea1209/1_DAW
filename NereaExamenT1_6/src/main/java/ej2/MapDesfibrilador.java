@@ -5,9 +5,9 @@
 package ej2;
 
 import daw.Desfibrilador;
+import ej1.Ej1;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -21,44 +21,48 @@ public class MapDesfibrilador {
     private final Map<String, Desfibrilador> mapDesfibriladores;
     
     public MapDesfibrilador(Desfibrilador[] arrayDesfibriladores, boolean esOrdenada) {
-        this.mapDesfibriladores = mapDesfibriladores(arrayDesfibriladores, esOrdenada);
+         Map<String, Desfibrilador> map = Ej1.mapDesfibriladores(Ej1.desfibriladoresSinRepetidos(arrayDesfibriladores));
+         this.mapDesfibriladores = esOrdenada? new TreeMap<>(map):map;
     }
     
-    private static Map<String, Desfibrilador> mapDesfibriladores(Desfibrilador[] arrayDesfibriladores, boolean esOrdenada){
-        Map<String, Desfibrilador> map;
-        if (esOrdenada) {
-            map = new TreeMap<>();
-        } else {
-            map = new HashMap<>();
-        }
-        for (int i = 0; i < arrayDesfibriladores.length; i++) {
-            map.put(arrayDesfibriladores[i].getId(), arrayDesfibriladores[i]);
-        }
-        return map;
-    }
+    // No hace falta
+//    private static Map<String, Desfibrilador> mapDesfibriladores(Desfibrilador[] arrayDesfibriladores, boolean esOrdenada){
+//        Map<String, Desfibrilador> map;
+//        if (esOrdenada) {
+//            map = new TreeMap<>();
+//        } else {
+//            map = new HashMap<>();
+//        }
+//        for (int i = 0; i < arrayDesfibriladores.length; i++) {
+//            map.put(arrayDesfibriladores[i].getId(), arrayDesfibriladores[i]);
+//        }
+//        return map;
+//    }
 
     public Map<String, Desfibrilador> getMapDesfibriladores() {
         return mapDesfibriladores;
     }
 
     
-//    @Override
-//    public String toString() {
-//        StringBuilder sb = new StringBuilder();
-//        sb.append(mapDesfibriladores.keySet().).append(" -> ");
-//        sb.append(mapDesfibriladores.).append(" -> ");
-//        sb.append('}');
-//        return sb.toString();
-//    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("MapDesfibrilador{");
-        sb.append("mapDesfibriladores=").append(mapDesfibriladores);
-        sb.append('}');
+        for (String key : mapDesfibriladores.keySet()) {
+            sb.append(key).append(" -> ");
+            sb.append(mapDesfibriladores.get(key).getNombre()).append(" -> ");
+            sb.append(mapDesfibriladores.get(key).getEmail());
+        }
         return sb.toString();
     }
+
+//    @Override
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        sb.append(map);
+//        sb.append("mapDesfibriladores=").append(mapDesfibriladores);
+//        sb.append('}');
+//        return sb.toString();
+//    }
     
     public boolean estaDesfibrilador(Desfibrilador desfibrilador){
         return this.mapDesfibriladores.containsKey(desfibrilador.getId());
@@ -84,6 +88,18 @@ public class MapDesfibrilador {
 //        }
 //        return map;
 //    }
+    
+    public Map<String, Integer> numeroDesfiByEmail(){
+        var nuevoMap = new HashMap<String, Integer>();
+        for (Desfibrilador des : mapDesfibriladores.values()) {
+            if (nuevoMap.containsKey(des.getEmail())) {
+                nuevoMap.put(des.getEmail(), nuevoMap.get(des.getEmail()) + 1);
+            } else {
+                nuevoMap.put(des.getEmail(), 1);
+            }
+        }
+        return nuevoMap;
+    }
     
     
     
