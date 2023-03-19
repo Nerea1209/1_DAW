@@ -20,10 +20,12 @@ public abstract class Sala {
     public Sala() {
     }
 
-    public Sala(int salaID) {
+    public Sala(int salaID, Sensor sensorTemperatura, Sensor sensorHumedad) {
         if (!salasID.contains(salaID)) {
             this.salaID = salaID;
             salasID.add(salaID);
+            this.sensorHumedad = sensorHumedad;
+            this.sensorTemperatura = sensorTemperatura;
         } else {
             throw new IllegalArgumentException("El ID introducido ya existe.");
         }
@@ -31,6 +33,22 @@ public abstract class Sala {
 
     public int getSalaID() {
         return salaID;
+    }
+    
+    public Sensor getSensorTemperatura() {
+        return sensorTemperatura;
+    }
+
+    public Sensor getSensorHumedad() {
+        return sensorHumedad;
+    }
+
+    public void setSensorTemperatura(Sensor sensorTemperatura) {
+        this.sensorTemperatura = sensorTemperatura;
+    }
+
+    public void setSensorHumedad(Sensor sensorHumedad) {
+        this.sensorHumedad = sensorHumedad;
     }
 
     @Override
@@ -60,14 +78,12 @@ public abstract class Sala {
         StringBuilder sb = new StringBuilder();
         sb.append("Sala{");
         sb.append("salaID=").append(salaID);
+        sb.append(", sensorTemperatura=").append(sensorTemperatura);
+        sb.append(", sensorHumedad=").append(sensorHumedad);
         sb.append('}');
         return sb.toString();
     }
-    
-    
-    
-    
-    
+
     
     
 }

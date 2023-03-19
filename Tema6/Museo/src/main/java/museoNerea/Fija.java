@@ -15,8 +15,8 @@ public final class Fija extends Sala {
     public Fija() {
     }
 
-    public Fija(String estado, int salaID) {
-        super(salaID);
+    public Fija(String estado, int salaID, Sensor sensorTemperatura, Sensor sensorHumedad) {
+        super(salaID, sensorTemperatura, sensorHumedad);
         this.estado = estado;
     }
 
