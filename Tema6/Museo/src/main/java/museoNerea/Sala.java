@@ -14,6 +14,8 @@ public abstract class Sala {
     
     private int salaID;
     private static Set<Integer> salasID;
+    private Sensor sensorTemperatura;
+    private Sensor sensorHumedad;
 
     public Sala() {
     }
