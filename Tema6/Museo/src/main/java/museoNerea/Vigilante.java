@@ -8,7 +8,7 @@ package museoNerea;
  *
  * @author Nerea
  */
-public class Vigilante extends Empleado {
+public final class Vigilante extends Empleado {
     
     private String zona;
 
