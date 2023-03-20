@@ -14,13 +14,13 @@ public abstract class Sala {
     
     private int salaID;
     private static Set<Integer> salasID;
-    private Sensor sensorTemperatura;
-    private Sensor sensorHumedad;
+    private Temperatura sensorTemperatura;
+    private Humedad sensorHumedad;
 
     public Sala() {
     }
 
-    public Sala(int salaID, Sensor sensorTemperatura, Sensor sensorHumedad) {
+    public Sala(int salaID, Temperatura sensorTemperatura, Humedad sensorHumedad) {
         if (!salasID.contains(salaID)) {
             this.salaID = salaID;
             salasID.add(salaID);
@@ -43,11 +43,11 @@ public abstract class Sala {
         return sensorHumedad;
     }
 
-    public void setSensorTemperatura(Sensor sensorTemperatura) {
+    public void setSensorTemperatura(Temperatura sensorTemperatura) {
         this.sensorTemperatura = sensorTemperatura;
     }
 
-    public void setSensorHumedad(Sensor sensorHumedad) {
+    public void setSensorHumedad(Humedad sensorHumedad) {
         this.sensorHumedad = sensorHumedad;
     }
 

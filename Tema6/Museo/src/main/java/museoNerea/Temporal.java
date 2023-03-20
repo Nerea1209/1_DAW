@@ -17,7 +17,7 @@ public final class Temporal extends Sala {
     public Temporal() {
     }
 
-    public Temporal(LocalDate fechaIni, LocalDate fechaFin, int salaID, Sensor sensorTemperatura, Sensor sensorHumedad) {
+    public Temporal(LocalDate fechaIni, LocalDate fechaFin, int salaID, Temperatura sensorTemperatura, Humedad sensorHumedad) {
         super(salaID, sensorTemperatura, sensorHumedad);
         this.fechaIni = fechaIni;
         this.fechaFin = fechaFin;
