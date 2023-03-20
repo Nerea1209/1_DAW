@@ -10,21 +10,21 @@ package museoNerea;
  */
 public final class Fotografia extends Obra {
     
-    private tipoFotografia tipo;
+    private TipoFotografia tipo;
 
     public Fotografia() {
     }
 
-    public Fotografia(tipoFotografia tipo, Integer obraID, String autor) {
+    public Fotografia(TipoFotografia tipo, Integer obraID, String autor) {
         super(obraID, autor);
         this.tipo = tipo;
     }
 
-    public tipoFotografia getTipo() {
+    public TipoFotografia getTipo() {
         return tipo;
     }
 
-    public void setTipo(tipoFotografia tipo) {
+    public void setTipo(TipoFotografia tipo) {
         this.tipo = tipo;
     }
 

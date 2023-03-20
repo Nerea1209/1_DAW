@@ -8,7 +8,7 @@ package museoNerea;
  *
  * @author Nerea
  */
-public enum tipoFotografia {
+public enum TipoFotografia {
     
     DOCUMENTAL, ASTRONÓMICA, DEPORTIVA, PAISAJÍSTA;
     
