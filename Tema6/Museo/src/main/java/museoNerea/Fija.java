@@ -4,6 +4,8 @@
  */
 package museoNerea;
 
+import java.util.List;
+
 /**
  *
  * @author Nerea
@@ -15,8 +17,8 @@ public final class Fija extends Sala {
     public Fija() {
     }
 
-    public Fija(String estado, int salaID, Temperatura sensorTemperatura, Humedad sensorHumedad) {
-        super(salaID, sensorTemperatura, sensorHumedad);
+    public Fija(String estado, int salaID, List<Obra> obras, Temperatura sensorTemperatura, Humedad sensorHumedad) {
+        super(salaID, obras, sensorTemperatura, sensorHumedad);
         this.estado = estado;
     }
 

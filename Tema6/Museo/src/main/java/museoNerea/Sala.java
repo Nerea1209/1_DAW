@@ -4,6 +4,7 @@
  */
 package museoNerea;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -14,21 +15,32 @@ public abstract class Sala {
     
     private int salaID;
     private static Set<Integer> salasID;
+    private List<Obra> obras;
     private Temperatura sensorTemperatura;
     private Humedad sensorHumedad;
 
     public Sala() {
     }
 
-    public Sala(int salaID, Temperatura sensorTemperatura, Humedad sensorHumedad) {
+    public Sala(int salaID, List<Obra> obras, Temperatura sensorTemperatura, Humedad sensorHumedad) {
         if (!salasID.contains(salaID)) {
             this.salaID = salaID;
-            salasID.add(salaID);
-            this.sensorHumedad = sensorHumedad;
+            this.obras = obras;
             this.sensorTemperatura = sensorTemperatura;
+            this.sensorHumedad = sensorHumedad;
+            salasID.add(salaID);
         } else {
             throw new IllegalArgumentException("El ID introducido ya existe.");
         }
+        
+    }
+    
+    public List<Obra> getObras() {
+        return obras;
+    }
+
+    public void setObras(List<Obra> obras) {
+        this.obras = obras;
     }
 
     public int getSalaID() {
@@ -83,6 +95,8 @@ public abstract class Sala {
         sb.append('}');
         return sb.toString();
     }
+
+    
 
     
     

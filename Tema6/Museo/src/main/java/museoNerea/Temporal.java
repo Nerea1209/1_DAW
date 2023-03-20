@@ -5,6 +5,7 @@
 package museoNerea;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  *
@@ -17,8 +18,8 @@ public final class Temporal extends Sala {
     public Temporal() {
     }
 
-    public Temporal(LocalDate fechaIni, LocalDate fechaFin, int salaID, Temperatura sensorTemperatura, Humedad sensorHumedad) {
-        super(salaID, sensorTemperatura, sensorHumedad);
+    public Temporal(LocalDate fechaIni, LocalDate fechaFin, int salaID, List<Obra> obras, Temperatura sensorTemperatura, Humedad sensorHumedad) {
+        super(salaID, obras, sensorTemperatura, sensorHumedad);
         this.fechaIni = fechaIni;
         this.fechaFin = fechaFin;
     }
