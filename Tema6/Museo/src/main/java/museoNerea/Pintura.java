@@ -8,23 +8,23 @@ package museoNerea;
  *
  * @author Nerea
  */
-public final class Fotografia extends Obra {
+public final class Pintura extends Obra {
     
-    private TipoFotografia tipo;
+    private TipoPintura tipo;
 
-    public Fotografia() {
+    public Pintura() {
     }
 
-    public Fotografia(TipoFotografia tipo, Integer obraID, String autor) {
+    public Pintura(TipoPintura tipo, Integer obraID, String autor) {
         super(obraID, autor);
         this.tipo = tipo;
     }
 
-    public TipoFotografia getTipo() {
+    public TipoPintura getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoFotografia tipo) {
+    public void setTipo(TipoPintura tipo) {
         this.tipo = tipo;
     }
 

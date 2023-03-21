@@ -32,11 +32,10 @@ public abstract class Conservador extends Empleado implements Restaurador{
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Conservador{");
-        sb.append("antig\u00fcedad=").append(antigüedad);
+        sb.append("antigüedad=").append(antigüedad);
         sb.append('}');
         return sb.toString();
     }
-    
     
     
 }

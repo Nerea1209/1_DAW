@@ -8,8 +8,9 @@ package museoNerea;
  *
  * @author Nerea
  */
-public enum TipoFotografia {
+public enum TipoPintura {
     
-    DOCUMENTAL, ASTRONÓMICA, DEPORTIVA, PAISAJÍSTA;
+    REALISMO, FOTORREALISMO, EXPRESIONISMO, IMPRESIONISMO, ABSTRACTO,
+    SURREALISMO;
     
 }
