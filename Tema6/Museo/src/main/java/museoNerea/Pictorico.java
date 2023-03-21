@@ -8,8 +8,13 @@ package museoNerea;
  *
  * @author nerea
  */
-public class Pictorico extends Conservador{
+// Clase final Pictorico que hereda de Conservador y, por lo tanto,
+// implementa la interfaz Restaurador y, a su vez, hereda de Empleado,
+// con lo cual, implementa Comparable
+public final class Pictorico extends Conservador{
 
+    // No tiene atributos
+    // Constructors
     public Pictorico() {
     }
 
@@ -17,14 +22,15 @@ public class Pictorico extends Conservador{
         super(antigüedad, nif, nombre);
     }
 
+    // abstract methos of Restaurador
     @Override
     public void restaurar(Obra o) {
-        if (o instanceof Pintura foto) {
-            System.out.println("El conservador fotográfico ha restaurado la escultura " 
-                    + foto.toString());
+        if (o instanceof Pintura pintura) {
+            System.out.println("El conservador pictorico " + this.getNombre() + " ha restaurado la pintura " 
+                    + pintura.toString());
         } else {
-            System.out.println("El conservador escultórico no puede restaurar "
-                    + "una fotografía.");
+            System.out.println("El conservador pictorico " + this.getNombre() + " no puede restaurar "
+                    + "una escultura.");
         }
     }
     

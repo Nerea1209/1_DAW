@@ -8,22 +8,26 @@ package museoNerea;
  *
  * @author Nerea
  */
+// Clase final de Escultura que hereda de Obra
 public final class Escultura extends Obra {
-    
+
+    // Atributos encapsulados
     private double profundidad, altura, anchura;
     private Material material;
 
+    // Constructors
     public Escultura() {
     }
 
     public Escultura(double profundidad, double altura, double anchura, Material material, Integer obraID, String autor) {
         super(obraID, autor);
         this.profundidad = Math.abs(profundidad);
-        this.altura =  Math.abs(altura);
-        this.anchura =  Math.abs(anchura);
-        this.material =  material;
+        this.altura = Math.abs(altura);
+        this.anchura = Math.abs(anchura);
+        this.material = material;
     }
 
+    // Getters and setters
     public double getProfundidad() {
         return profundidad;
     }
@@ -56,6 +60,7 @@ public final class Escultura extends Obra {
         this.material = material;
     }
 
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -67,7 +72,5 @@ public final class Escultura extends Obra {
         sb.append('}');
         return sb.toString();
     }
-    
-    
-    
+
 }

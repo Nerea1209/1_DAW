@@ -10,18 +10,22 @@ import java.util.List;
  *
  * @author Nerea
  */
+// Clase final de Fija que hereda de Sala
 public final class Fija extends Sala {
     
+    // Atributos encapsulados
     private String estado;
 
+    // Constructors
     public Fija() {
     }
 
-    public Fija(String estado, int salaID, List<Obra> obras, Temperatura sensorTemperatura, Humedad sensorHumedad) {
-        super(salaID, obras, sensorTemperatura, sensorHumedad);
+    public Fija(String estado, int salaID, List<Obra> obras) {
+        super(salaID, obras);
         this.estado = estado;
     }
 
+    // Getters and setters
     public String getEstado() {
         return estado;
     }
@@ -30,6 +34,7 @@ public final class Fija extends Sala {
         this.estado = estado;
     }
 
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

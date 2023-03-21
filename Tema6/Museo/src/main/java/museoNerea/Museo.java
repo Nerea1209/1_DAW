@@ -13,10 +13,12 @@ import java.util.List;
  */
 public class Museo {
 
+    // Atributos encapsulados
     private String nombre, direccion;
     private List<Empleado> empleados;
     private List<Sala> salas;
 
+    // Constructors
     public Museo() {
     }
 
@@ -27,6 +29,7 @@ public class Museo {
         this.salas = salas;
     }
 
+    // Getters and setters
     public String getNombre() {
         return nombre;
     }
@@ -59,6 +62,7 @@ public class Museo {
         this.salas = salas;
     }
 
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -71,8 +75,10 @@ public class Museo {
         return sb.toString();
     }
     
+    // METHODS
+    
     public void contratar(Empleado e){
-        this.empleados.add(e);
+        this.empleados.add(e); 
     }
     
     public void despedir(Empleado e){

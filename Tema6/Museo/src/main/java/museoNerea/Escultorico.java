@@ -8,8 +8,13 @@ package museoNerea;
  *
  * @author nerea
  */
-public class Escultorico extends Conservador {
-
+// Clase final de Escultórico que hereda de Conservador
+// por lo tanto tambien implementa comparable por Empleado
+// y Restaurador por Conservador
+public final class Escultorico extends Conservador {
+    
+    // No tiene atributos
+    // Constructors
     public Escultorico() {
     }
 
@@ -17,14 +22,15 @@ public class Escultorico extends Conservador {
         super(antigüedad, nif, nombre);
     }
 
+    // abstract method of Restaurador
     @Override
     public void restaurar(Obra o) {
-        if (o instanceof Escultura escultura) {
-            System.out.println("El conservador escultórico ha restaurado la escultura " 
+        if (o instanceof Escultura escultura) { // Si es una escultura, la restaura
+            System.out.println(o.toString() + "El conservador escultórico " + this.getNombre() + " ha restaurado la escultura " 
                     + escultura.toString());
-        } else {
-            System.out.println("El conservador escultórico no puede restaurar "
-                    + "una fotografía.");
+        } else { // Si no, no puede
+            System.out.println("El conservador escultórico " + this.getNombre() + " no puede restaurar "
+                    + "una pintura.");
         }
     }
     

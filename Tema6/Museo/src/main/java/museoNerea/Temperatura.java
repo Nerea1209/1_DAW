@@ -8,19 +8,14 @@ package museoNerea;
  *
  * @author Nerea
  */
+// Clase Temperatura que hereda de Sensor
 public final class Temperatura extends Sensor {
     
+    // Atributos encapsulados
     private final int MAX_TEMP = 24;
     private final int MIN_TEMP = 18;
 
-    public int getMAX_TEMP() {
-        return MAX_TEMP;
-    }
-
-    public int getMIN_TEMP() {
-        return MIN_TEMP;
-    }
-
+    // Constructors
     public Temperatura() {
     }
 
@@ -28,6 +23,16 @@ public final class Temperatura extends Sensor {
         super(sensorID);
     }
     
+    // Getters and setters
+    public int getMAX_TEMP() {
+        return MAX_TEMP;
+    }
+
+    public int getMIN_TEMP() {
+        return MIN_TEMP;
+    }
+    
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -38,6 +43,7 @@ public final class Temperatura extends Sensor {
         return sb.toString();
     }
 
+    // abstract method of Sensor
     @Override
     public final void alarma() {
         System.out.println("¡¡LA TEMPERATURA ESTÁ FUERA DEL RANGO!!");

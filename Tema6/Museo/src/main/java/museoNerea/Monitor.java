@@ -8,10 +8,14 @@ package museoNerea;
  *
  * @author Nerea
  */
+// Clase final Monitor que hereda de empleado y, por lo tanto, implementa
+// la interfaz Comparable
 public final class Monitor extends Empleado {
     
+    // Atributos encapsulados
     private String especialidad;
 
+    // Constructors
     public Monitor() {
     }
 
@@ -20,6 +24,7 @@ public final class Monitor extends Empleado {
         this.especialidad = especialidad;
     }
 
+    // Getters and setters
     public String getEspecialidad() {
         return especialidad;
     }
@@ -28,6 +33,7 @@ public final class Monitor extends Empleado {
         this.especialidad = especialidad;
     }
 
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -36,7 +42,5 @@ public final class Monitor extends Empleado {
         sb.append('}');
         return sb.toString();
     }
-    
-    
     
 }

@@ -8,10 +8,13 @@ package museoNerea;
  *
  * @author nerea
  */
+// Clase abstracta de Conservador que hereda de empleado e implementa la interfaz restaurador
 public abstract class Conservador extends Empleado implements Restaurador{
     
+    // Atributos encapsulados
     private int antigüedad;
 
+    // Constructores
     public Conservador() {
     }
 
@@ -20,6 +23,7 @@ public abstract class Conservador extends Empleado implements Restaurador{
         this.antigüedad = antigüedad;
     }
 
+    // Getters and setters
     public int getAntigüedad() {
         return antigüedad;
     }
@@ -28,6 +32,7 @@ public abstract class Conservador extends Empleado implements Restaurador{
         this.antigüedad = antigüedad;
     }
 
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

@@ -4,6 +4,7 @@
  */
 package museoNerea;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -11,11 +12,14 @@ import java.util.Set;
  *
  * @author Nerea
  */
+// Clase abstracta de Empleado que implementa la interfaz comparable por nif
 public abstract class Empleado implements Comparable<Empleado> {
     
+    // Atributos encapsulados
     private String nif, nombre;
-    private static Set<String> nifs;
+    private static Set<String> nifs = new HashSet<>();
 
+    // Constructors
     public Empleado() {
     }
 
@@ -29,6 +33,7 @@ public abstract class Empleado implements Comparable<Empleado> {
         }
     }
 
+    // Getters and setters
     public String getNif() {
         return nif;
     }
@@ -41,6 +46,7 @@ public abstract class Empleado implements Comparable<Empleado> {
         this.nombre = nombre;
     }
 
+    // equals and hashCode by nif
     @Override
     public int hashCode() {
         int hash = 5;
@@ -63,6 +69,7 @@ public abstract class Empleado implements Comparable<Empleado> {
         return Objects.equals(this.nif, other.nif);
     }
 
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -73,6 +80,7 @@ public abstract class Empleado implements Comparable<Empleado> {
         return sb.toString();
     }
 
+    // abstract method of comparable
     @Override
     public int compareTo(Empleado o) {
         return this.nif.compareToIgnoreCase(o.getNif());

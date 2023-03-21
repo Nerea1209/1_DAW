@@ -11,19 +11,23 @@ import java.util.List;
  *
  * @author Nerea
  */
+// Clase temporal que hereda de Sala
 public final class Temporal extends Sala {
     
+    // Atributos encapsulados
     private LocalDate fechaIni, fechaFin;
 
+    // Constructors
     public Temporal() {
     }
 
-    public Temporal(LocalDate fechaIni, LocalDate fechaFin, int salaID, List<Obra> obras, Temperatura sensorTemperatura, Humedad sensorHumedad) {
-        super(salaID, obras, sensorTemperatura, sensorHumedad);
+    public Temporal(LocalDate fechaIni, LocalDate fechaFin, int salaID, List<Obra> obras) {
+        super(salaID, obras);
         this.fechaIni = fechaIni;
         this.fechaFin = fechaFin;
     }
 
+    // Getters and setters
     public LocalDate getFechaIni() {
         return fechaIni;
     }
@@ -40,6 +44,7 @@ public final class Temporal extends Sala {
         this.fechaFin = fechaFin;
     }
 
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -49,7 +54,4 @@ public final class Temporal extends Sala {
         sb.append('}');
         return sb.toString();
     }
-    
-    
-    
 }

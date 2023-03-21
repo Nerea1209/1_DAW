@@ -10,6 +10,7 @@ package museoNerea;
  */
 public interface Restaurador {
     
+    // abstract method
     void restaurar(Obra o);
     
 }

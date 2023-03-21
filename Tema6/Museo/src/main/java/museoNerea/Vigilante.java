@@ -8,10 +8,14 @@ package museoNerea;
  *
  * @author Nerea
  */
+// Clase Vigilante que hereda de Empleado y, con lo cual, implementa la
+// interfaz Comparable
 public final class Vigilante extends Empleado {
     
+    // Atributos encapsulados
     private String zona;
 
+    // Constructors
     public Vigilante() {
     }
 
@@ -20,6 +24,7 @@ public final class Vigilante extends Empleado {
         this.zona = zona;
     }
 
+    // Getters and setters
     public String getZona() {
         return zona;
     }
@@ -28,6 +33,7 @@ public final class Vigilante extends Empleado {
         this.zona = zona;
     }
 
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -36,7 +42,4 @@ public final class Vigilante extends Empleado {
         sb.append('}');
         return sb.toString();
     }
-    
-    
-    
 }

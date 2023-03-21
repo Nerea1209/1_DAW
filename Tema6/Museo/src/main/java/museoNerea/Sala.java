@@ -4,6 +4,7 @@
  */
 package museoNerea;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -13,28 +14,34 @@ import java.util.Set;
  */
 public abstract class Sala {
     
+    // Atributos encapsulados
     private int salaID;
-    private static Set<Integer> salasID;
+    private static Set<Integer> salasID = new HashSet<>();
     private List<Obra> obras;
     private Temperatura sensorTemperatura;
     private Humedad sensorHumedad;
+    private static int contador;
 
+    // Constructors
     public Sala() {
     }
 
-    public Sala(int salaID, List<Obra> obras, Temperatura sensorTemperatura, Humedad sensorHumedad) {
-        if (!salasID.contains(salaID)) {
-            this.salaID = salaID;
+    public Sala(int salaID, List<Obra> obras) {
+        if (!salasID.contains(salaID)) { // Si no existe el id de sala
+            salasID.add(salaID); // Lo añade
+            this.salaID = salaID; // Crea la sala
             this.obras = obras;
-            this.sensorTemperatura = sensorTemperatura;
-            this.sensorHumedad = sensorHumedad;
-            salasID.add(salaID);
-        } else {
+            // Inicializamos ya los sensores (uno de cada)
+            // para que sea composición fuerte
+            this.sensorTemperatura = new Temperatura(contador++);
+            this.sensorHumedad =  new Humedad(contador++);
+            
+        } else { // Si no lanza una exception
             throw new IllegalArgumentException("El ID introducido ya existe.");
         }
-        
     }
     
+    // Getters and setters
     public List<Obra> getObras() {
         return obras;
     }
@@ -63,6 +70,7 @@ public abstract class Sala {
         this.sensorHumedad = sensorHumedad;
     }
 
+    // equals and hashCode by salaID
     @Override
     public int hashCode() {
         int hash = 7;
@@ -85,6 +93,7 @@ public abstract class Sala {
         return this.salaID == other.salaID;
     }
 
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -95,9 +104,4 @@ public abstract class Sala {
         sb.append('}');
         return sb.toString();
     }
-
-    
-
-    
-    
 }

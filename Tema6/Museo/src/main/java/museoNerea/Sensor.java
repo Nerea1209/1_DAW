@@ -4,6 +4,7 @@
  */
 package museoNerea;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -12,25 +13,29 @@ import java.util.Set;
  */
 public abstract class Sensor {
     
+    // Atributos encapsulados
     private int sensorID;
-    private static Set<Integer> sensoresID;
+    private static Set<Integer> sensoresID = new HashSet<>();
 
+    // Constructors
     public Sensor() {
     }
 
     public Sensor(int sensorID) {
-        if (!sensoresID.contains(sensorID)) {
-            this.sensorID = sensorID;
-            sensoresID.add(sensorID);
-        } else {
+        if (!sensoresID.contains(sensorID)) { // Si no existe el id
+            sensoresID.add(sensorID); // Lo añade
+            this.sensorID = sensorID; // Crea el sensor
+        } else { // Si no lanza una exception
             throw new IllegalArgumentException("El ID introducido ya existe.");
         }
     }
 
+    // Getters and setters
     public int getSensorID() {
         return sensorID;
     }
 
+    // equals and hashCode by sensorID
     @Override
     public int hashCode() {
         int hash = 5;
@@ -53,6 +58,7 @@ public abstract class Sensor {
         return this.sensorID == other.sensorID;
     }
 
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -62,6 +68,7 @@ public abstract class Sensor {
         return sb.toString();
     }
     
+    // abstract method
     public abstract void alarma();
     
 }

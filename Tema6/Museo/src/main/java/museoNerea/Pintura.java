@@ -8,10 +8,13 @@ package museoNerea;
  *
  * @author Nerea
  */
+// Clase final de Pintura que hereda de Obra
 public final class Pintura extends Obra {
     
+    // Atributos encapsulados
     private TipoPintura tipo;
 
+    // Constructors
     public Pintura() {
     }
 
@@ -20,6 +23,7 @@ public final class Pintura extends Obra {
         this.tipo = tipo;
     }
 
+    // Getters and setters
     public TipoPintura getTipo() {
         return tipo;
     }
@@ -28,15 +32,13 @@ public final class Pintura extends Obra {
         this.tipo = tipo;
     }
 
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(super.toString()).append("Fotografia{");
+        sb.append(super.toString()).append("Pintura{");
         sb.append("tipo=").append(tipo);
         sb.append('}');
         return sb.toString();
     }
-    
-    
-    
 }

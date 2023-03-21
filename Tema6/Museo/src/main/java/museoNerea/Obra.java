@@ -4,6 +4,7 @@
  */
 package museoNerea;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -13,23 +14,27 @@ import java.util.Set;
  */
 public abstract class Obra {
     
+    // Atributos encapsulados
     private Integer obraID;
     private String autor;
-    private static Set<Integer> obrasID;
+    private static Set<Integer> obrasID = new HashSet<>();
 
+    // Constructors
     public Obra() {
     }
 
     public Obra(Integer obraID, String autor) {
-         if (!obrasID.contains(obraID)) {
-            this.obraID = obraID;
+         if (!obrasID.contains(obraID)) { // Si no existe el nif
+             obrasID.add(obraID); // Lo añade
+            this.obraID = obraID; // Crea la obra
             this.autor = autor;
-            obrasID.add(obraID);
-        } else {
+            
+        } else { // Si existe lanza una exception
             throw new IllegalArgumentException("El ID introducido ya existe.");
         }
     }
 
+    // Getters and setters
     public Integer getObraID() {
         return obraID;
     }
@@ -46,6 +51,7 @@ public abstract class Obra {
         this.autor = autor;
     }
 
+    // equals and hashCode by obraID
     @Override
     public int hashCode() {
         int hash = 5;
@@ -68,6 +74,7 @@ public abstract class Obra {
         return Objects.equals(this.obraID, other.obraID);
     }
 
+    // toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -77,7 +84,5 @@ public abstract class Obra {
         sb.append('}');
         return sb.toString();
     }
-    
-    
     
 }
