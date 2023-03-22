@@ -2,17 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package museoNerea;
+package tiendaNerea;
 
 /**
  *
  * @author nerea
  */
-public interface Restaurador {
+public interface SeEnvia {
     
-    double COMISION = 2; // en horas
-    
-    // abstract method
-    void restaurar(Obra o);
+    void enviar(String direccion);
     
 }

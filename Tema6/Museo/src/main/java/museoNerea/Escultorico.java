@@ -20,13 +20,14 @@ public final class Escultorico extends Conservador {
 
     public Escultorico(int antigüedad, String nif, String nombre) {
         super(antigüedad, nif, nombre);
-    }
+    }    
 
     // abstract method of Restaurador
     @Override
     public void restaurar(Obra o) {
         if (o instanceof Escultura escultura) { // Si es una escultura, la restaura
-            System.out.println(o.toString() + "El conservador escultórico " + this.getNombre() + " ha restaurado la escultura " 
+            System.out.println(o.toString() + "El conservador escultórico " + 
+                    this.getNombre() + " ha restaurado la escultura " 
                     + escultura.toString());
         } else { // Si no, no puede
             System.out.println("El conservador escultórico " + this.getNombre() + " no puede restaurar "
