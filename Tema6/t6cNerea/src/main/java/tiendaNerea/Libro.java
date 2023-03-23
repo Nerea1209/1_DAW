@@ -15,17 +15,17 @@ import java.util.Set;
 public abstract class Libro extends Producto implements Comparable<Libro>{
     
     private String isbn;
-    private static Set<String> isbns = new HashSet<>();
+    private static Set<String> isbns = new HashSet<>(); // Para controlar que sean únicos
 
     public Libro() {
     }
 
     public Libro(String isbn, int codigo, double precio, int iva, String descripcion) {
         super(codigo, precio, iva, descripcion);
-        if (!isbns.contains(isbn)) {
-            isbns.add(isbn);
+        if (!isbns.contains(isbn)) { // Si no está el isbn
+            isbns.add(isbn); // Lo añade y crea el libro
             this.isbn = isbn;
-        } else {
+        } else { // Si no lanza una exception
             throw new IllegalArgumentException("El isbn introducido ya existe");
         }
     }
@@ -76,9 +76,6 @@ public abstract class Libro extends Producto implements Comparable<Libro>{
         return this.isbn.compareToIgnoreCase(o.getIsbn());
     }
     
-    
-    
-    
-    
+    public abstract void pasarPagina();
     
 }

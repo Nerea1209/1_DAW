@@ -31,7 +31,7 @@ public final class LibroDigital extends Libro  implements SeDescarga{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("LibroDigital{");
+        sb.append(super.toString()).append("LibroDigital{");
         sb.append("numKBytes=").append(numKBytes);
         sb.append('}');
         return sb.toString();
@@ -40,6 +40,11 @@ public final class LibroDigital extends Libro  implements SeDescarga{
     @Override
     public void descargar() {
         System.out.println("http://nerea.daw/" + this.hashCode());
+    }
+
+    @Override
+    public void pasarPagina() {
+        System.out.println("Desliza el dedo para pasar página");
     }
     
     

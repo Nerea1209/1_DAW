@@ -39,7 +39,7 @@ public abstract class Ropa extends Producto implements SeEnvia {
     
     @Override
     public void enviar(String direccion) {
-        System.out.println(this.toString() + " de tipo Ropa, cuya dirección es " + direccion);
+        System.out.println(this.toString() + " de tipo Ropa se ha enviado a " + direccion);
     }
     
 }

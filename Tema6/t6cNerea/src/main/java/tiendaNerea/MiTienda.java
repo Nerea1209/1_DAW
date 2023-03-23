@@ -40,7 +40,9 @@ public class MiTienda {
                 21, "sdfkjhsdifh"));
 
         // Muestro los datos de los productos usando un foreach
+        System.out.println("Lista de productos");
         productos.forEach(System.out::println);
+        System.out.println("");
 
         // Ordeno la lista de productos según el precio, 
         // haciendo uso de <<Comparator>> y una expresión lambda. 
@@ -48,7 +50,9 @@ public class MiTienda {
                 (o1, o2) -> Double.compare(o1.getPrecio(), o2.getPrecio()));
 
         // Muestra la lista de productos ordenados por precio.
+        System.out.println("Lista de productos ordenadas por precio");
         productos.forEach(System.out::println);
+        System.out.println("");
 
         // Ordeno la lista de productos según el codigo, 
         // haciendo uso de <<Comparator>> y una expresión lambda. 
@@ -56,17 +60,30 @@ public class MiTienda {
                 (o1, o2) -> Double.compare(o1.getCodigo(), o2.getCodigo()));
 
         // Muestra la lista de productos ordenados por codigo.
+        System.out.println("Lista de productos ordenada por código");
         productos.forEach(System.out::println);
+        System.out.println("");
 
         // Realiza la búsqueda binaria, según su código, de algún producto 
         // que exista dentro de la lista y otro que no exista, 
         // mostrando la posición que ocupa en la lista.
-        int pos = Collections.binarySearch(productos, productoABuscar,
+        
+        // Producto que existe
+        int pos1 = Collections.binarySearch(productos, productoABuscar,
                 (o1, o2) -> Double.compare(o1.getCodigo(), o2.getCodigo()));
 
         System.out.println("El producto a buscar " + productoABuscar
-                + " se encuentra en la posición " + pos + " de la lista de productos.");
+                + " se encuentra en la posición " + pos1 + " de la lista de productos.");
+        System.out.println("");
 
+        // Producto que no existe
+        int pos2 = Collections.binarySearch(productos, new Pantalon(Talla.L, Marca.ZARA, 80, 67, 3, ""),
+                (o1, o2) -> Double.compare(o1.getCodigo(), o2.getCodigo()));
+
+        System.out.println("El producto a buscar " + productoABuscar
+                + " se encuentra en la posición " + pos2 + " de la lista de productos.");
+        System.out.println("");
+        
         // Recorre la lista de productos y guarda todos los libros 
         // en una lista de libros.
         List<Libro> libros = new ArrayList<>();
@@ -83,28 +100,44 @@ public class MiTienda {
             Libro l = iterador.next();
             System.out.println(l.toString());
         }
+        System.out.println("");
         
         // Ordena los libros según ISBN, haciendo uso de <<Comparable>>. 
         Collections.sort(libros);
         // Muestra la lista de libros ordenada. 
+        System.out.println("Lista de libros ordenados por isbn");
         libros.forEach(System.out::println);
-
+        System.out.println("");
         
         // Recorre de nuevo la lista de libros y en cada iteración, 
         // ejecuta enviar() o descargar() en función del tipo de libro.     
-        while (iterador.hasNext()) {	
-            Libro l = iterador.next();
-            if (l instanceof LibroPapel libroPapel) { // Explícita e implícita
+        
+        // DUDA: Si he usado anteriormente un iterator
+        // y lo quiero volver a utilizar, ¿cómo hago que empiece desde el principio
+        // a recorrer la lista?
+        for (Libro libro : libros) {
+            if (libro instanceof LibroPapel libroPapel) { // Explícita e implícita
                 libroPapel.enviar(RandomStringUtils.randomAlphabetic(5));
             } else {
-                LibroDigital libroDigital = (LibroDigital) l; // Explícita
+                LibroDigital libroDigital = (LibroDigital) libro; // Explícita
                 libroDigital.descargar();
             }
         }
+        System.out.println("");
         
         // Utiliza el método contains(Object) sobre la lista de 
         // libros para comprobar si existe un libro o no existe.
+        
+        // Libro que existe
+        System.out.println("¿El libro " + productoABuscar + " está en la lista de productos?");
         System.out.println(libros.contains(productoABuscar));
+        System.out.println("");
+        
+        // Libro que no existe
+        Libro key = new LibroDigital(0, "1", 90, 0, 0, "");
+        System.out.println("¿El libro " + key + " está en la lista de productos?");
+        System.out.println(libros.contains(key));
+        System.out.println("");
 
         // Usando la lista de productos inicial, 
         // crea una nueva lista con todos los objetos que Se Envian.
@@ -114,17 +147,26 @@ public class MiTienda {
                 enviados.add(seEnvia);
             }
         }
+        System.out.println("");
+        
+        // Mostramos la lista de enviados para comprobarlo
+        System.out.println("Lista de productos enviados");
+        enviados.forEach(System.out::println);
+        System.out.println("");
 
         // Recorre la lista de objetos que Se Envian y llama 
         // al método de la interfaz.
         for (SeEnvia enviado : enviados) {
             enviado.enviar(RandomStringUtils.randomAlphabetic(5));
         }
+        System.out.println("");
         
         // Inventa un método abstracto en Libro que tenga 
         // comportamientos diferentes en las subclases. 
         // Implementa los métodos en las clases hijas.
-
+        for (Libro libro : libros) {
+            libro.pasarPagina();
+        }
         
         
 

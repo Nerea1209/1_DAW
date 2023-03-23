@@ -39,7 +39,12 @@ public final class LibroPapel extends Libro implements SeEnvia {
 
     @Override
     public void enviar(String direccion) {
-        System.out.println(this.toString() + " de tipo Libro, cuya dirección es " + direccion);
+        System.out.println(this.toString() + " de tipo Libro se ha enviado a " + direccion);
+    }
+
+    @Override
+    public void pasarPagina() {
+        System.out.println("Coge la pagina y la mueve hacia la izquierda para pasar página");
     }
     
     

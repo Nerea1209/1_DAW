@@ -18,19 +18,19 @@ public abstract class Producto {
     private double precio;
     private int iva;
     private String descripcion;
-    private static Set<Integer> codigos = new HashSet<>();
+    private static Set<Integer> codigos = new HashSet<>(); // Para que los codigos sean únicos
 
     public Producto() {
     }
 
     public Producto(int codigo, double precio, int iva, String descripcion) {
-        if (!codigos.contains(codigo)) {
-            codigos.add(codigo);
+        if (!codigos.contains(codigo)) { // Si no está en el set
+            codigos.add(codigo); // Lo añade y lo crea
             this.codigo = codigo;
             this.precio = precio;
             this.iva = iva;
             this.descripcion = descripcion;
-        } else {
+        } else { // Si no lanza una excepcion
             throw new IllegalArgumentException("El código introducido ya existe.");
         }
         
