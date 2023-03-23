@@ -61,6 +61,7 @@ public class Geometria {
 //                idFigura, "")));
         // Búsqueda binaria según el id introducido, 
         // mostrando la posición que ocupa en la lista, si existe.
+        Collections.sort(listaFiguras, (o1, o2) -> o1.getId().compareToIgnoreCase(o2.getId()) );
         Figura figuraABuscar = new Circulo(0,idFigura, "");
         int pos = Collections.binarySearch(listaFiguras, figuraABuscar, (o1, o2) -> o1.getId().compareToIgnoreCase(o2.getId()) );
         System.out.println("La figura a buscar con id " + idFigura + " se encuentra en la posición "
