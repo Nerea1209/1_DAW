@@ -3,32 +3,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
 
-package aleatorioNerea;
+package calculadoraNerea;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 /**
  *
  * @author Nerea
  */
-public class Tarea3GUI extends JPanel{
+public class Calculadora {
 
     public static void main(String[] args) {
-        // Construimos la ventana
-    	JFrame frame = new JFrame("Generar número aleatorio");
-	// La ventana no se puede redimensionar
-	frame.setResizable(false);
+         // Construimos la ventana
+        JFrame ventanaPrincipal = new JFrame("Calculadora");
+
+        // La ventana no se puede redimensionar
+	ventanaPrincipal.setResizable(false);
 	// Posición de la ventana
-    	frame.setLocationRelativeTo(null);
+    	ventanaPrincipal.setLocationRelativeTo(null);
 	// Incluimos el panel en la ventana
-    	frame.add(new PanelAleatorio());
+    	ventanaPrincipal.add(new PanelCalculadora());
        // Ajusta el frame al contenido
-        frame.pack();
-        frame.setLocationRelativeTo(null);
+        ventanaPrincipal.pack();
+        ventanaPrincipal.setLocationRelativeTo(null);
 	// Hacemos visible la ventana
-    	frame.setVisible(true);
+    	ventanaPrincipal.setVisible(true);
 	//Acción por defecto al pulsar el botón de cierre de la ventana
-    	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
