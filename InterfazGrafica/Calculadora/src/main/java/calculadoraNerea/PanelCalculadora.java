@@ -4,8 +4,8 @@
  */
 package calculadoraNerea;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,7 +15,8 @@ import java.util.regex.Pattern;
  */
 public class PanelCalculadora extends javax.swing.JPanel {
 
-    final String regex = "[/*+[-]]";
+    final String regex = "[*+/[-]]";
+    String resultadoFinal="";
 
     /**
      * Creates new form PanelCalculadora
@@ -320,9 +321,9 @@ public class PanelCalculadora extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -354,7 +355,7 @@ public class PanelCalculadora extends javax.swing.JPanel {
                                 .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -396,68 +397,65 @@ public class PanelCalculadora extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jTextArea1.setText(jTextArea1.getText() + "8");
+        imprimirNumero("8", evt);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        jTextArea1.setText(jTextArea1.getText() + "7");
+        imprimirNumero("7", evt);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        jTextArea1.setText(jTextArea1.getText() + "9");
+        imprimirNumero("9", evt);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        jTextArea1.setText(jTextArea1.getText() + "4");
+        imprimirNumero("4", evt);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        jTextArea1.setText(jTextArea1.getText() + "5");
+        imprimirNumero("5", evt);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        jTextArea1.setText(jTextArea1.getText() + "6");
+        imprimirNumero("6", evt);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        jTextArea1.setText(jTextArea1.getText() + "1");
+        imprimirNumero("1", evt);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        jTextArea1.setText(jTextArea1.getText() + "2");
+        imprimirNumero("2", evt);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        jTextArea1.setText(jTextArea1.getText() + "3");
+        imprimirNumero("3", evt);
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        if (!jTextArea1.getText().endsWith(regex)) {
-            jTextArea1.setText(jTextArea1.getText() + "/");
-        }
+//        if (!jTextArea1.getText().endsWith(regex)) {
+//            jTextArea1.setText(jTextArea1.getText() + "/");
+//        }
+        controlOperaciones("/");
 
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        if (!jTextArea1.getText().endsWith(regex)) {
-            jTextArea1.setText(jTextArea1.getText() + "*");
-        }
+        controlOperaciones("*");
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        if (!jTextArea1.getText().endsWith(regex)) {
-            jTextArea1.setText(jTextArea1.getText() + "+");
-        }
+        controlOperaciones("+");
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        if (!jTextArea1.getText().endsWith(regex)) {
-            jTextArea1.setText(jTextArea1.getText() + "-");
-        }
+        controlOperaciones("-");
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-
+        if (!jTextArea1.getText().endsWith("+") && !jTextArea1.getText().endsWith("/")
+                && !jTextArea1.getText().endsWith("-") && !jTextArea1.getText().endsWith("*")
+                && !jTextArea1.getText().endsWith(".")) {
         final String string = jTextArea1.getText();
 
         final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
@@ -471,42 +469,51 @@ public class PanelCalculadora extends javax.swing.JPanel {
             for (int i = 0; i <= matcher.groupCount(); i++) {
 
                 resultado = switch (matcher.group(i)) {
-                    case "/" ->
-                        resultado / Double.parseDouble(partes[j]);
-                    case "*" ->
-                        resultado * Double.parseDouble(partes[j]);
-                    case "+" ->
-                        resultado + Double.parseDouble(partes[j]);
-                    default ->
-                        resultado - Double.parseDouble(partes[j]);
+                    case "/" -> resultado / Double.parseDouble(partes[j]);
+                    case "*" ->resultado * Double.parseDouble(partes[j]);
+                    case "+" ->resultado + Double.parseDouble(partes[j]);
+                    default -> resultado - Double.parseDouble(partes[j]);
                 };
                 j++;
             }
         }
-        NumberFormat formatter = new DecimalFormat("#.##");
-        String formattedNumber = formatter.format(resultado);
-        jTextArea1.setText(String.valueOf(formattedNumber));
+        
+        BigDecimal decimales = new BigDecimal(resultado);
+        // stripTrailingZeros controla que el decimal tenga algún decimal distinto de cero
+        // toPlainString lo pasa a String
+        resultadoFinal = decimales.setScale(2, RoundingMode.HALF_UP).stripTrailingZeros().toPlainString();
+        jTextArea1.setText(resultadoFinal);
+        }
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        jTextArea1.setText(jTextArea1.getText() + "0");
+        imprimirNumero("0", evt);
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        jTextArea1.setText(jTextArea1.getText() + "00");
+        imprimirNumero("00", evt);
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        jTextArea1.setText(jTextArea1.getText() + ".");
+        String[] partes = jTextArea1.getText().split(regex);
+        if (!partes[partes.length - 1].contains(".")) {
+            controlOperaciones(".");
+        }
+        
     }//GEN-LAST:event_jButton21ActionPerformed
 
+    // Si le da a AC (all clear) borra todos los numeros insertados
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         jTextArea1.setText("");
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    // Si le da a C (clear) borra solo el último elemento
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         int size = jTextArea1.getText().length();
-        jTextArea1.replaceRange("", size - 1, size);
+        if (size > 0) {
+            jTextArea1.replaceRange("", size - 1, size);
+            resultadoFinal = "";
+        }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -532,4 +539,24 @@ public class PanelCalculadora extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
+
+    private void controlOperaciones(String valor){
+        if (!jTextArea1.getText().endsWith("+") && !jTextArea1.getText().endsWith("/")
+                && !jTextArea1.getText().endsWith("-") && !jTextArea1.getText().endsWith("*")
+                && !jTextArea1.getText().endsWith(".")) {
+            jTextArea1.setText(jTextArea1.getText() + valor);
+        }
+    }
+    
+    private void imprimirNumero(String numero, java.awt.event.ActionEvent evt){
+        if (!resultadoFinal.equals("") && !jTextArea1.getText().endsWith("+") && !jTextArea1.getText().endsWith("/")
+                && !jTextArea1.getText().endsWith("-") && !jTextArea1.getText().endsWith("*")
+                && !jTextArea1.getText().endsWith(".")) {
+            jButton5ActionPerformed(evt);
+        }
+        jTextArea1.setText(jTextArea1.getText() + numero);
+        resultadoFinal="";
+    }
 }
+
+
