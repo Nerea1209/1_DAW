@@ -40,10 +40,9 @@ public class Robot {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Robot{");
-        sb.append("numSerie=").append(numSerie);
-        sb.append(",\tporcentajeVida=").append(porcentajeVida);
-        sb.append('}');
+        sb.append("Robot:");
+        sb.append("id").append(numSerie);
+        sb.append("\t-\tvida:").append(porcentajeVida);
         return sb.toString();
     }
     
