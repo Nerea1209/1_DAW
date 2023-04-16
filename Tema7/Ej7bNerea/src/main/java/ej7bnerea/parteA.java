@@ -66,7 +66,6 @@ public class parteA {
     
     // Método para escribir una lista de String, sobreescribiendo si el fichero existe
     public static void escribirListaString(List<String> lista, String ruta) {
-        
         try {
             Files.write(Paths.get(ruta), lista, StandardCharsets.UTF_8,
                     StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);

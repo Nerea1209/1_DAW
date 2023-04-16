@@ -4,8 +4,6 @@
  */
 package ej7bnerea;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -13,7 +11,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,8 +20,10 @@ import java.util.regex.Pattern;
  */
 public class ParteB {
 
+    public static List<String> lineas = leerFichero("vehículos.txt");
+    
     public static void main(String[] args) {
-        List<Vehiculo> vehiculosLeidos = leerFichero("vehículos.txt", "[0-2] - ([^:\\\\s]+(:[^:\\s]+)+)");
+        List<Vehiculo> vehiculosLeidos = obtenerListaVehiculos(lineas, "[0-2] - ([^:\\\\s]+(:[^:\\s]+)+)");
         System.out.println("Lista de vehículos leídos sin ordenar");
         vehiculosLeidos.forEach(System.out::println);
         System.out.println("\nLista de vehículos ordenados por marca");
@@ -32,17 +31,20 @@ public class ParteB {
         vehiculosLeidos.forEach(System.out::println);
     }
 
-    public static List<Vehiculo> leerFichero(String ruta, String regex) {
-
-        List<Vehiculo> vehiculos = new ArrayList<>();
-        List<String> lineasTextoVehiculos = new ArrayList<>();
+    public static List<String> leerFichero(String ruta) {
+        List<String> lista = new ArrayList<>();
         try {
-            lineasTextoVehiculos = Files.readAllLines(Paths.get(ruta),
+            lista = Files.readAllLines(Paths.get(ruta),
                     StandardCharsets.UTF_8);
         } catch (IOException ex) {
             System.out.println("Error leyendo el fichero");
         }
-        for (String linea : lineasTextoVehiculos) {
+        return lista;
+    }
+    
+    public static List<Vehiculo> obtenerListaVehiculos(List<String> lineas, String regex){
+        List<Vehiculo> vehiculos = new ArrayList<>();
+        for (String linea : lineas) {
             final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
             final Matcher matcher = pattern.matcher(linea);
 
@@ -79,9 +81,7 @@ public class ParteB {
 
             }
         }
-
         return vehiculos;
-
     }
     
     public static Marca obtenerMarca(String marca){
