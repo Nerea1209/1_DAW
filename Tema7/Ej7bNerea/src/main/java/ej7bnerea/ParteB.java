@@ -29,6 +29,15 @@ public class ParteB {
         System.out.println("\nLista de vehículos ordenados por marca");
         Collections.sort(vehiculosLeidos, (o1, o2) -> o1.getMarca().compareTo(o2.getMarca()));
         vehiculosLeidos.forEach(System.out::println);
+        long cont = vehiculosLeidos.stream()
+                .filter(v -> v.getColor().equals(Color.ROJO))
+                .count();
+        System.out.println("Hay " + cont + " coches rojos");
+        System.out.println("Marcas diferentes de todos los vehículos de la lista");
+        vehiculosLeidos.stream()
+                .map(v -> v.getMarca())
+                .distinct()
+                .forEach(System.out::println);
     }
 
     public static List<String> leerFichero(String ruta) {
