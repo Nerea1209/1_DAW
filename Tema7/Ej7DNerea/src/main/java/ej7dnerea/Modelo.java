@@ -31,4 +31,35 @@ public enum Modelo {
         return modelos[pos];
     }
     
+    public static Modelo obtenerModelo(String modelo){
+        return switch (modelo) {
+            case "MÉGANE" -> Modelo.MÉGANE;
+            case "CLIO" -> Modelo.CLIO;
+            case "TWINGO" -> Modelo.TWINGO;
+            case "ARKANA" -> Modelo.ARKANA;
+            case "C3" -> Modelo.C3;
+            case "C4" ->  Modelo.C4;
+            case "DS4" -> Modelo.DS4;
+            case "IBIZA" -> Modelo.IBIZA;
+            case "ATECA" -> Modelo.ATECA;
+            case "LEÓN" -> Modelo.LEÓN;
+            case "E208" -> Modelo.E208;
+            case "ERIFTER" -> Modelo.ERIFTER;
+            case "HIBRID508" -> Modelo.HIBRID508;
+            case "MONDEO" -> Modelo.MONDEO;
+            case "FOCUS" -> Modelo.FOCUS;
+            case "MUNSTANG" -> Modelo.MUNSTANG;
+            case "ASTRA" -> Modelo.ASTRA;
+            case "CORSA" -> Modelo.CORSA;
+            case "GOLF" -> Modelo.GOLF;
+            case "POLO" -> Modelo.POLO;
+            case "PASSAT" -> Modelo.PASSAT;
+            case "GLA" -> Modelo.GLA;
+            case "CLASE_C" -> Modelo.CLASE_C;
+            case "EQE" -> Modelo.EQE;
+            default -> { throw new IllegalArgumentException();
+            }
+        };
+    }
+    
 }

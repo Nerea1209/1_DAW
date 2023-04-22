@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -70,22 +71,22 @@ public class ParteB {
                 if (linea.startsWith("0"))  {
                     String numPuerta = partes[7];
                     vehiculos.add(new Turismo(Integer.parseInt(numPuerta), 
-                            Long.valueOf(bastidor), matricula, obtenerMarca(marca), 
-                            obtenerModelo(modelo), obtenerColor(color), 
-                            Double.parseDouble(tarifa), Boolean.parseBoolean(disponible)));
+                            Long.valueOf(bastidor), matricula, Marca.obtenerMarca(marca), 
+                            Modelo.obtenerModelo(modelo), Color.obtenerColor(color), 
+                            Double.parseDouble(tarifa.formatted("#.##")), Boolean.parseBoolean(disponible)));
                 } else if (linea.startsWith("1"))  {
                     String cc = partes[7];
                     vehiculos.add(new Deportivo(Integer.parseInt(cc), 
-                            Long.valueOf(bastidor), matricula, obtenerMarca(marca), 
-                            obtenerModelo(modelo), obtenerColor(color), 
-                            Double.parseDouble(tarifa), Boolean.parseBoolean(disponible)));
+                            Long.valueOf(bastidor), matricula, Marca.obtenerMarca(marca), 
+                            Modelo.obtenerModelo(modelo), Color.obtenerColor(color), 
+                            Double.parseDouble(tarifa.formatted("#.##")), Boolean.parseBoolean(disponible)));
                 } else if (linea.startsWith("2"))  {
                     String carga = partes[7];
                     String volumen = partes[8];
                     vehiculos.add(new Furgoneta(Integer.parseInt(carga), Integer.parseInt(volumen), 
-                            Long.valueOf(bastidor), matricula, obtenerMarca(marca), 
-                            obtenerModelo(modelo), obtenerColor(color), 
-                            Double.parseDouble(tarifa), Boolean.parseBoolean(disponible)));
+                            Long.valueOf(bastidor), matricula, Marca.obtenerMarca(marca), 
+                            Modelo.obtenerModelo(modelo), Color.obtenerColor(color), 
+                            Double.parseDouble(tarifa.formatted("#.##")), Boolean.parseBoolean(disponible)));
                 }
 
             }
@@ -93,65 +94,10 @@ public class ParteB {
         return vehiculos;
     }
     
-    public static Marca obtenerMarca(String marca){
-        return switch (marca) {
-            case "SEAT" -> Marca.SEAT;
-            case "CITROËN" -> Marca.CITROËN;
-            case "FORD" -> Marca.FORD;
-            case "MERCEDES" -> Marca.MERCEDES;
-            case "OPEL" -> Marca.OPEL;
-            case "PEUGEOT" ->  Marca.PEUGEOT;
-            case "RENAULT" -> Marca.RENAULT;
-            case "VOLKSWAGEN" -> Marca.VOLKSWAGEN;
-            default -> { throw new IllegalArgumentException();
-            }
-        };
-    }
     
-    public static Modelo obtenerModelo(String modelo){
-        return switch (modelo) {
-            case "MÉGANE" -> Modelo.MÉGANE;
-            case "CLIO" -> Modelo.CLIO;
-            case "TWINGO" -> Modelo.TWINGO;
-            case "ARKANA" -> Modelo.ARKANA;
-            case "C3" -> Modelo.C3;
-            case "C4" ->  Modelo.C4;
-            case "DS4" -> Modelo.DS4;
-            case "IBIZA" -> Modelo.IBIZA;
-            case "ATECA" -> Modelo.ATECA;
-            case "LEÓN" -> Modelo.LEÓN;
-            case "E208" -> Modelo.E208;
-            case "ERIFTER" -> Modelo.ERIFTER;
-            case "HIBRID508" -> Modelo.HIBRID508;
-            case "MONDEO" -> Modelo.MONDEO;
-            case "FOCUS" -> Modelo.FOCUS;
-            case "MUNSTANG" -> Modelo.MUNSTANG;
-            case "ASTRA" -> Modelo.ASTRA;
-            case "CORSA" -> Modelo.CORSA;
-            case "GOLF" -> Modelo.GOLF;
-            case "POLO" -> Modelo.POLO;
-            case "PASSAT" -> Modelo.PASSAT;
-            case "GLA" -> Modelo.GLA;
-            case "CLASE_C" -> Modelo.CLASE_C;
-            case "EQE" -> Modelo.EQE;
-            default -> { throw new IllegalArgumentException();
-            }
-        };
-    }
     
-    public static Color obtenerColor(String color){
-        return switch (color) {
-            case "AZUL" -> Color.AZUL;
-            case "VIOLETA" -> Color.VIOLETA;
-            case "AMARILLO" -> Color.AMARILLO;
-            case "NARANJA" -> Color.NARANJA;
-            case "ROJO" -> Color.ROJO;
-            case "VERDE" -> Color.VERDE;
-            case "BLANCO" -> Color.BLANCO;
-            case "NEGRO" -> Color.NEGRO;
-            default -> { throw new IllegalArgumentException();
-            }
-        };
-    }
+    
+    
+    
 
 }

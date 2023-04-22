@@ -19,4 +19,19 @@ public enum Marca {
         return marcas[new Random().nextInt(0, marcas.length)];
     }
     
+    public static Marca obtenerMarca(String marca){
+        return switch (marca) {
+            case "SEAT" -> Marca.SEAT;
+            case "CITROËN" -> Marca.CITROËN;
+            case "FORD" -> Marca.FORD;
+            case "MERCEDES" -> Marca.MERCEDES;
+            case "OPEL" -> Marca.OPEL;
+            case "PEUGEOT" ->  Marca.PEUGEOT;
+            case "RENAULT" -> Marca.RENAULT;
+            case "VOLKSWAGEN" -> Marca.VOLKSWAGEN;
+            default -> { throw new IllegalArgumentException();
+            }
+        };
+    }
+    
 }
