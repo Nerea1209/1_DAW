@@ -25,6 +25,10 @@ import javax.xml.bind.annotation.XmlElementWrapper;
  */
 public class GenerarFicheros {
     
+    public static ListaFacturas listaFacturas = new ListaFacturas();
+    public static JAXBContext contexto;
+    public static Marshaller serializador;
+    
     public static void main(String[] args) throws JAXBException {
         
         // Lista de 50 facturas aleatorias
@@ -38,18 +42,17 @@ public class GenerarFicheros {
         escribirListaString(pasarListaString(facturas), "./csv/facturas.csv");
         
         // Guarda los datos de la lista en facturas.xml en la carpeta ./xml
-        ListaFacturas listaFacturas = new ListaFacturas();
         listaFacturas.setListaFacturas(facturas);
         
             // Crea el contexto JAXB. Se encarga de definir los objetos 
             // que vamos a guardar. En nuestro caso sólo el tipo ListaFacturas
-            JAXBContext contexto = JAXBContext.newInstance(ListaFacturas.class);
-
+            contexto = JAXBContext.newInstance(ListaFacturas.class);
+            
             // El contexto JAXB permite crear un objeto Marshaller, que sirve para
             // generar la estructura del fichero XML 
             // El proceso de pasar objetos Java (CatalogoMuebles) a ficheros XML 
             // se conoce como "marshalling" o "serialización"
-            Marshaller serializador = contexto.createMarshaller();
+            serializador = contexto.createMarshaller();
 
             // Especificamos que la propiedad del formato de salida
             // del serializador sea true, lo que implica que el formato se 

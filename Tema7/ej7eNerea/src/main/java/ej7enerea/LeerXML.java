@@ -10,21 +10,23 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 
 /**
  *
  * @author nerea
  */
 public class LeerXML {
-    
-    public static void main(String[] args) {
-        
-        leerFichero("./xml/facturas.xml");
-        
+
+    public static void main(String[] args) throws JAXBException {
+        GenerarFicheros.serializador.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        GenerarFicheros.serializador.marshal(GenerarFicheros.listaFacturas, System.out);
+
     }
-    
-    public static void leerFichero (String ruta) {
-        List<String> lineas=new ArrayList<>();
+
+    public static void leerFichero(String ruta) {
+        List<String> lineas = new ArrayList<>();
         try {
             lineas = Files.readAllLines(Paths.get(ruta),
                     StandardCharsets.UTF_8);
