@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ListaFacturas {
+public class Facturas {
     
     // XmLElementWrapper define un contenedor para la lista 
     // de muebles

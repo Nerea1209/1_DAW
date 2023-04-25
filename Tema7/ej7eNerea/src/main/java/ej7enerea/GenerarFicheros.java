@@ -16,8 +16,6 @@ import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 
 /**
  *
@@ -25,34 +23,31 @@ import javax.xml.bind.annotation.XmlElementWrapper;
  */
 public class GenerarFicheros {
     
-    public static ListaFacturas listaFacturas = new ListaFacturas();
-    public static JAXBContext contexto;
-    public static Marshaller serializador;
-    
     public static void main(String[] args) throws JAXBException {
         
         // Lista de 50 facturas aleatorias
-        List<Factura> facturas = generarListaFactura(50);
+        List<Factura> listaFacturas = generarListaFactura(50);
         
         // Crear las carpetas "csv" y "xml"
         crearDirectorio("./csv");
         crearDirectorio("xml");
         
         // Guarda los datos de la lista en facturas.csv en la carpeta ./csv
-        escribirListaString(pasarListaString(facturas), "./csv/facturas.csv");
+        escribirListaString(pasarListaString(listaFacturas), "./csv/facturas.csv");
         
         // Guarda los datos de la lista en facturas.xml en la carpeta ./xml
-        listaFacturas.setListaFacturas(facturas);
+        Facturas facturas = new Facturas();
+        facturas.setListaFacturas(listaFacturas);
         
             // Crea el contexto JAXB. Se encarga de definir los objetos 
-            // que vamos a guardar. En nuestro caso sólo el tipo ListaFacturas
-            contexto = JAXBContext.newInstance(ListaFacturas.class);
+            // que vamos a guardar. En nuestro caso sólo el tipo Facturas
+            JAXBContext contexto = JAXBContext.newInstance(Facturas.class);
             
             // El contexto JAXB permite crear un objeto Marshaller, que sirve para
             // generar la estructura del fichero XML 
             // El proceso de pasar objetos Java (CatalogoMuebles) a ficheros XML 
             // se conoce como "marshalling" o "serialización"
-            serializador = contexto.createMarshaller();
+            Marshaller serializador = contexto.createMarshaller();
 
             // Especificamos que la propiedad del formato de salida
             // del serializador sea true, lo que implica que el formato se 
@@ -66,16 +61,16 @@ public class GenerarFicheros {
             // crear la salida de serialización
 
             // Serialización y salida por consola
-//            serializador.marshal(listaFacturas, System.out);
+            serializador.marshal(facturas, System.out);
 
             // Volcado al fichero xml
-            serializador.marshal(listaFacturas, new File("./xml/facturas.xml"));
+            serializador.marshal(facturas, new File("./xml/facturas.xml"));
         
         crearDirectorio("./facturascsv");
         
-        for (int i = 0; i < listaFacturas.getListaFacturas().size(); i++) {
-            crearFichero("./facturascsv/" + i);
-            escribirString(listaFacturas.getListaFacturas().get(i).toString(), "./facturascsv/" + i);
+        for (Factura factura : facturas.getListaFacturas()) {
+            crearFichero("./facturascsv/" + factura.getCodigo());
+            escribirString(factura.toString(), "./facturascsv/" + factura.getCodigo());
         }
         
     }

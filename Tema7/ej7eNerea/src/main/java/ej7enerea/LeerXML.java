@@ -4,14 +4,12 @@
  */
 package ej7enerea;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
+import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
 /**
  *
@@ -19,22 +17,19 @@ import javax.xml.bind.Marshaller;
  */
 public class LeerXML {
 
-    public static void main(String[] args) throws JAXBException {
-        GenerarFicheros.serializador.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        GenerarFicheros.serializador.marshal(GenerarFicheros.listaFacturas, System.out);
+    public static void main(String[] args) throws JAXBException, FileNotFoundException {
+        // Crea el contexto JAXB 
+        JAXBContext contexto = JAXBContext.newInstance(Facturas.class);
+        // Crea el objeto Unmarshaller
+        Unmarshaller um = contexto.createUnmarshaller();
 
-    }
+        // Llama al método de unmarshalling
+        Facturas facturas = (Facturas) um.unmarshal(new File("./xml/facturas.xml"));
 
-    public static void leerFichero(String ruta) {
-        List<String> lineas = new ArrayList<>();
-        try {
-            lineas = Files.readAllLines(Paths.get(ruta),
-                    StandardCharsets.UTF_8);
-        } catch (IOException ex) {
-            System.out.println("Error leyendo el fichero");
-        }
-        for (String linea : lineas) {
-            System.out.println(linea);
-        }
+        List<Factura> listaFacturas = facturas.getListaFacturas();
+
+        listaFacturas.forEach(System.out::println);
+
     }
 }
+

@@ -9,6 +9,7 @@ import java.util.Random;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.commons.lang3.RandomStringUtils;
 
 /**
@@ -22,11 +23,9 @@ import org.apache.commons.lang3.RandomStringUtils;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Factura {
     
-    private static String codigo = "0";
-
-    public static String getCodigo() {
-        return codigo;
-    }
+    private static int cont = 1;
+    private String codigo;
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDate fechaEmision;
     private String descripcion;
     private double totalImporteFactura;
@@ -35,7 +34,8 @@ public class Factura {
         this.fechaEmision = LocalDate.now();
         this.descripcion = RandomStringUtils.randomAlphabetic(20);
         this.totalImporteFactura = new Random().doubles(1, 100, 1000).sum();
-        codigo = String.valueOf(Integer.parseInt(codigo)+1);
+        codigo = String.valueOf(cont);
+        cont++;
     }
 
     public Factura(LocalDate fechaEmision, String descripcion, double totalImporteFactura) {
@@ -69,9 +69,14 @@ public class Factura {
         this.totalImporteFactura = totalImporteFactura;
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append(codigo).append(";");
         sb.append(fechaEmision).append(";");
         sb.append(descripcion).append(";");
         sb.append(totalImporteFactura);
