@@ -8,6 +8,7 @@ import static ej7enerea.Usuario.leerFichero;
 import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
@@ -106,17 +107,15 @@ public class PanelUsuario extends javax.swing.JPanel {
         
         // Separo por :
         String[] datosFactura = lineas.get(0).split(";");
-        System.out.println(datosFactura);
-        
         // Creo una factura con esos datos
-        Factura factura = new Factura(LocalDate.parse(datosFactura[0]), datosFactura[1], Double.parseDouble(datosFactura[2]));
+        Factura factura = new Factura(datosFactura[0], LocalDate.parse(datosFactura[1]), datosFactura[2], Double.parseDouble(datosFactura[3]));
         
         // La añadimos al menú desplegable
         jComboBox1.addItem(factura.getCodigo());
         nombreFiles.add(factura.getCodigo());
         
         // La imprimo
-        factura.toString();
+        System.out.println(factura.toString());
         
         // Boramos el archivo
         GestionFicherosJavaNIO.borrarPath("./facturascsv/" + jComboBox1.getSelectedItem());

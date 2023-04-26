@@ -25,10 +25,6 @@ public class Usuario {
 
         PanelUsuario panelUsuario = new PanelUsuario();
         crearVentana("Elegir factura", panelUsuario);
-        
-        
-        
-        
     }
     
     public static void crearVentana(String title, JPanel panel) {

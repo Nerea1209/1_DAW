@@ -38,11 +38,11 @@ public class Factura {
         cont++;
     }
 
-    public Factura(LocalDate fechaEmision, String descripcion, double totalImporteFactura) {
+    public Factura(String codigo, LocalDate fechaEmision, String descripcion, double totalImporteFactura) {
+        this.codigo = codigo;
         this.fechaEmision = fechaEmision;
         this.descripcion = descripcion;
         this.totalImporteFactura = totalImporteFactura;
-        codigo = String.valueOf(Integer.parseInt(codigo)+1);
     }
 
     public LocalDate getFechaEmision() {
