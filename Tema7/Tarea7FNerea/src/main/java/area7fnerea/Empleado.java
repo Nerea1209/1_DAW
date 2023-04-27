@@ -13,15 +13,16 @@ import java.util.Objects;
  */
 public class Empleado {
     
-    private String nombreCompleto, dni, puesto;
+    private String apellidos, nombre, dni, puesto;
     private LocalDate tomaPosesion, cesePosicion;
     private boolean esEvaluador, esCoordinador;
 
     public Empleado() {
     }
 
-    public Empleado(String nombreCompleto, String dni, String puesto, LocalDate tomaPosesion, LocalDate cesePosicion, boolean esEvaluador, boolean esCoordinador) {
-        this.nombreCompleto = nombreCompleto;
+    public Empleado(String apellidos, String nombre, String dni, String puesto, LocalDate tomaPosesion, LocalDate cesePosicion, boolean esEvaluador, boolean esCoordinador) {
+        this.apellidos = apellidos;
+        this.nombre = nombre;
         this.dni = dni;
         this.puesto = puesto;
         this.tomaPosesion = tomaPosesion;
@@ -29,14 +30,21 @@ public class Empleado {
         this.esEvaluador = esEvaluador;
         this.esCoordinador = esCoordinador;
     }
-    
 
-    public String getNombreCompleto() {
-        return nombreCompleto;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDni() {
@@ -91,7 +99,8 @@ public class Empleado {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Empleado{");
-        sb.append("nombreCompleto=").append(nombreCompleto);
+        sb.append("apellidos=").append(apellidos);
+        sb.append(", nombre=").append(nombre);
         sb.append(", dni=").append(dni);
         sb.append(", puesto=").append(puesto);
         sb.append(", tomaPosesion=").append(tomaPosesion);
@@ -101,6 +110,8 @@ public class Empleado {
         sb.append('}');
         return sb.toString();
     }
+
+    
 
     @Override
     public int hashCode() {
