@@ -1,190 +1,190 @@
 [ {
-  "apellidos" : "\"Baena Valero",
-  "nombre" : " Juan José\"",
-  "dni" : "\"27347150N\"",
-  "puesto" : "\"Informática P.E.S.\"",
+  "apellidos" : "Baena Valero",
+  "nombre" : " Juan José",
+  "dni" : "27347150N",
+  "puesto" : "Informática P.E.S.",
   "tomaPosesion" : [ 2013, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Cárdenas Díaz",
-  "nombre" : " Laura\"",
-  "dni" : "\"26800485B\"",
-  "puesto" : "\"Educación Física P.E.S.\"",
+  "apellidos" : "Cárdenas Díaz",
+  "nombre" : " Laura",
+  "dni" : "26800485B",
+  "puesto" : "Educación Física P.E.S.",
   "tomaPosesion" : [ 2010, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Díaz Puerto",
-  "nombre" : " Francisco Javier\"",
-  "dni" : "\"50602307F\"",
-  "puesto" : "\"Filosofía P.E.S.\"",
+  "apellidos" : "Díaz Puerto",
+  "nombre" : " Francisco Javier",
+  "dni" : "50602307F",
+  "puesto" : "Filosofía P.E.S.",
   "tomaPosesion" : [ 2012, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Domínguez Tamayo",
-  "nombre" : " Julen\"",
-  "dni" : "\"03888739Z\"",
-  "puesto" : "\"Inglés P.E.S.\"",
+  "apellidos" : "Domínguez Tamayo",
+  "nombre" : " Julen",
+  "dni" : "03888739Z",
+  "puesto" : "Inglés P.E.S.",
   "tomaPosesion" : [ 2012, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Fagundo García",
-  "nombre" : " Emilia\"",
-  "dni" : "\"12731426Y\"",
-  "puesto" : "\"Tecnología P.E.S.\"",
+  "apellidos" : "Fagundo García",
+  "nombre" : " Emilia",
+  "dni" : "12731426Y",
+  "puesto" : "Tecnología P.E.S.",
   "tomaPosesion" : [ 2012, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Fernández Luzón",
-  "nombre" : " Rodrigo\"",
-  "dni" : "\"74663933E\"",
-  "puesto" : "\"Informática P.E.S.\"",
+  "apellidos" : "Fernández Luzón",
+  "nombre" : " Rodrigo",
+  "dni" : "74663933E",
+  "puesto" : "Informática P.E.S.",
   "tomaPosesion" : [ 2010, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Fortea Molina",
-  "nombre" : " Pastora\"",
-  "dni" : "\"77455412Z\"",
-  "puesto" : "\"Francés P.E.S.\"",
+  "apellidos" : "Fortea Molina",
+  "nombre" : " Pastora",
+  "dni" : "77455412Z",
+  "puesto" : "Francés P.E.S.",
   "tomaPosesion" : [ 2009, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Garrocho González",
-  "nombre" : " Cristina\"",
-  "dni" : "\"33397284L\"",
-  "puesto" : "\"Matemáticas P.E.S.\"",
+  "apellidos" : "Garrocho González",
+  "nombre" : " Cristina",
+  "dni" : "33397284L",
+  "puesto" : "Matemáticas P.E.S.",
   "tomaPosesion" : [ 2011, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Giráldez Cuevas",
-  "nombre" : " María\"",
-  "dni" : "\"07986998H\"",
-  "puesto" : "\"Física y Química P.E.S.\"",
+  "apellidos" : "Giráldez Cuevas",
+  "nombre" : " María",
+  "dni" : "07986998H",
+  "puesto" : "Física y Química P.E.S.",
   "tomaPosesion" : [ 2012, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"González Astilleros",
-  "nombre" : " Verónica\"",
-  "dni" : "\"25565241M\"",
-  "puesto" : "\"Informática P.E.S.\"",
+  "apellidos" : "González Astilleros",
+  "nombre" : " Verónica",
+  "dni" : "25565241M",
+  "puesto" : "Informática P.E.S.",
   "tomaPosesion" : [ 2009, 6, 22 ],
   "cesePosicion" : [ 2021, 1, 24 ],
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Hernández Lozano",
-  "nombre" : " Remedios\"",
-  "dni" : "\"26485849S\"",
-  "puesto" : "\"Inglés P.E.S.\"",
+  "apellidos" : "Hernández Lozano",
+  "nombre" : " Remedios",
+  "dni" : "26485849S",
+  "puesto" : "Inglés P.E.S.",
   "tomaPosesion" : [ 2008, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Lirola Oliva",
-  "nombre" : " Ana\"",
-  "dni" : "\"74868422H\"",
-  "puesto" : "\"Lengua Castellana y Literatura P.E.S.\"",
+  "apellidos" : "Lirola Oliva",
+  "nombre" : " Ana",
+  "dni" : "74868422H",
+  "puesto" : "Lengua Castellana y Literatura P.E.S.",
   "tomaPosesion" : [ 2008, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Macías Laynez",
-  "nombre" : " Magdalena\"",
-  "dni" : "\"25583669X\"",
-  "puesto" : "\"Matemáticas P.E.S.\"",
+  "apellidos" : "Macías Laynez",
+  "nombre" : " Magdalena",
+  "dni" : "25583669X",
+  "puesto" : "Matemáticas P.E.S.",
   "tomaPosesion" : [ 2010, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Márquez Pineda",
-  "nombre" : " Jacqueline Cristina\"",
-  "dni" : "\"74867075M\"",
-  "puesto" : "\"Orientación Educativa P.E.S.\"",
+  "apellidos" : "Márquez Pineda",
+  "nombre" : " Jacqueline Cristina",
+  "dni" : "74867075M",
+  "puesto" : "Orientación Educativa P.E.S.",
   "tomaPosesion" : [ 2008, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Martínez Fernández",
-  "nombre" : " Inés\"",
-  "dni" : "\"53682231R\"",
-  "puesto" : "\"Inglés P.E.S.\"",
+  "apellidos" : "Martínez Fernández",
+  "nombre" : " Inés",
+  "dni" : "53682231R",
+  "puesto" : "Inglés P.E.S.",
   "tomaPosesion" : [ 2009, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Núñez Murillo",
-  "nombre" : " Margarita\"",
-  "dni" : "\"75111043N\"",
-  "puesto" : "\"Sistemas y Aplic. Informáticos P.T.F.P.\"",
+  "apellidos" : "Núñez Murillo",
+  "nombre" : " Margarita",
+  "dni" : "75111043N",
+  "puesto" : "Sistemas y Aplic. Informáticos P.T.F.P.",
   "tomaPosesion" : [ 2012, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Ortiz Álvarez",
-  "nombre" : " Raquel\"",
-  "dni" : "\"27337182A\"",
-  "puesto" : "\"Informática P.E.S.\"",
+  "apellidos" : "Ortiz Álvarez",
+  "nombre" : " Raquel",
+  "dni" : "27337182A",
+  "puesto" : "Informática P.E.S.",
   "tomaPosesion" : [ 2013, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Rodríguez Montero",
-  "nombre" : " Rocío\"",
-  "dni" : "\"74816539T\"",
-  "puesto" : "\"Lengua Castellana y Literatura P.E.S.\"",
+  "apellidos" : "Rodríguez Montero",
+  "nombre" : " Rocío",
+  "dni" : "74816539T",
+  "puesto" : "Lengua Castellana y Literatura P.E.S.",
   "tomaPosesion" : [ 2010, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Serena León",
-  "nombre" : " Ana María\"",
-  "dni" : "\"26012958G\"",
-  "puesto" : "\"Educación Física P.E.S.\"",
+  "apellidos" : "Serena León",
+  "nombre" : " Ana María",
+  "dni" : "26012958G",
+  "puesto" : "Educación Física P.E.S.",
   "tomaPosesion" : [ 2010, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Torres Silva",
-  "nombre" : " Antonia\"",
-  "dni" : "\"08929037T\"",
-  "puesto" : "\"Sistemas y Aplic. Informáticos P.T.F.P.\"",
+  "apellidos" : "Torres Silva",
+  "nombre" : " Antonia",
+  "dni" : "08929037T",
+  "puesto" : "Sistemas y Aplic. Informáticos P.T.F.P.",
   "tomaPosesion" : [ 2008, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 }, {
-  "apellidos" : "\"Vidal Morillas",
-  "nombre" : " María Nieves\"",
-  "dni" : "\"27347116R\"",
-  "puesto" : "\"Física y Química P.E.S.\"",
+  "apellidos" : "Vidal Morillas",
+  "nombre" : " María Nieves",
+  "dni" : "27347116R",
+  "puesto" : "Física y Química P.E.S.",
   "tomaPosesion" : [ 2012, 9, 1 ],
   "cesePosicion" : null,
   "esEvaluador" : false,
-  "esCoordinador" : false
+  "esCoordinador" : true
 } ]
