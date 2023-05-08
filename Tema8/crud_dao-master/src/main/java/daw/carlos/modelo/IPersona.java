@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author J. Carlos F. Vico <jcarlosvico@maralboran.es>
+ * @author Nerea
  */
 
 public interface IPersona {
