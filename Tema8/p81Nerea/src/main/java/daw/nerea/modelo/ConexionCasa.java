@@ -1,8 +1,7 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package daw.nerea.modelo;
 
 import java.sql.Connection;
@@ -11,20 +10,20 @@ import java.sql.SQLException;
 
 /**
  *
- * @author nerea
+ * @author Nerea
  */
-public class Conexion {
-
-    private static final String SERVIDOR = "jdbc:mysql://192.168.56.101/";
+public class ConexionCasa {
+    
+    private static final String SERVIDOR = "jdbc:mysql://127.0.0.1/";
     private static final String NOMBRE_BASE_DATOS = "p81Nerea?zeroDateTimeBehavior=CONVERT_TO_NULL";
-    private static final String USER = "nerea";
-    private static final String PASS = "1209";
+    private static final String USER = "root";
+    private static final String PASS = "";
 
     private static Connection instancia = null;
     
     // Patrón Singleton
     // Constructor privado no accesible desde otras clases
-    private Conexion() {
+    private ConexionCasa() {
 
     }
 
@@ -47,4 +46,5 @@ public class Conexion {
         }
         return instancia;
     }
+    
 }
