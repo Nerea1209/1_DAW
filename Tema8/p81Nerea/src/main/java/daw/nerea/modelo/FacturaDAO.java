@@ -22,7 +22,7 @@ public class FacturaDAO implements IFactura {
     private Connection con = null;
 
     public FacturaDAO() {
-        con = ConexionClase.getInstance();
+        con = ConexionCasa.getInstance();
     }
     
     @Override

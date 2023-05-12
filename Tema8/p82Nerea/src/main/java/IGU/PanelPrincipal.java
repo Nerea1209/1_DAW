@@ -5,6 +5,7 @@
 package IGU;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -173,40 +174,11 @@ public class PanelPrincipal extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-         // Construimos la ventana
-        JFrame ventanaConsultar = new JFrame("Consultar facturas");
-
-        // La ventana no se puede redimensionar
-	ventanaConsultar.setResizable(false);
-	// Posición de la ventana
-    	ventanaConsultar.setLocationRelativeTo(null);
-	// Incluimos el panel en la ventana
-    	ventanaConsultar.add(new PanelConsultar());
-       // Ajusta el frame al contenido
-        ventanaConsultar.pack();
-        ventanaConsultar.setLocationRelativeTo(null);
-	// Hacemos visible la ventana
-    	ventanaConsultar.setVisible(true);
-	//Acción por defecto al pulsar el botón de cierre de la ventana
-    	ventanaConsultar.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        crearVentana("Consultar facturas", new PanelConsultar());
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        // Construimos la ventana
-        JFrame ventanaConsultar = new JFrame("Insertar factura");
-        // La ventana no se puede redimensionar
-	ventanaConsultar.setResizable(false);
-	// Posición de la ventana
-    	ventanaConsultar.setLocationRelativeTo(null);
-	// Incluimos el panel en la ventana
-    	ventanaConsultar.add(new PanelInsertar());
-       // Ajusta el frame al contenido
-        ventanaConsultar.pack();
-        ventanaConsultar.setLocationRelativeTo(null);
-	// Hacemos visible la ventana
-    	ventanaConsultar.setVisible(true);
-	//Acción por defecto al pulsar el botón de cierre de la ventana
-    	ventanaConsultar.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        crearVentana("Insertar factura", new PanelInsertar());
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -217,7 +189,26 @@ public class PanelPrincipal extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel14MouseClicked
 
-
+    public static JFrame crearVentana(String title, JPanel panel) {
+        // Construimos la ventana
+        JFrame ventanaConsultar = new JFrame(title);
+        // La ventana no se puede redimensionar
+	ventanaConsultar.setResizable(false);
+	// Posición de la ventana
+    	ventanaConsultar.setLocationRelativeTo(null);
+	// Incluimos el panel en la ventana
+    	ventanaConsultar.add(panel);
+       // Ajusta el frame al contenido
+        ventanaConsultar.pack();
+        ventanaConsultar.setLocationRelativeTo(null);
+	// Hacemos visible la ventana
+    	ventanaConsultar.setVisible(true);
+	//Acción por defecto al pulsar el botón de cierre de la ventana
+    	ventanaConsultar.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        return ventanaConsultar;
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

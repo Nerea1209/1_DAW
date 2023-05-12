@@ -92,7 +92,7 @@ public class PanelConsultar extends javax.swing.JPanel {
         String[][] facturas = new String[listaFacturas.size()][cols];
         for (int i = 0; i < listaFacturas.size(); i++) {
                 facturas[i][0] = String.valueOf(listaFacturas.get(i).getCodigo());
-                facturas[i][1] = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(listaFacturas.get(i).getFechaEmision());
+                facturas[i][1] = new SimpleDateFormat("dd/MM/yyyy").format(listaFacturas.get(i).getFechaEmision());
                 facturas[i][2] = listaFacturas.get(i).getDescripcion();
                 facturas[i][3] = String.valueOf(listaFacturas.get(i).getTotalImporte());
         }

@@ -22,7 +22,6 @@ public class Main {
     public static void main(String[] args) {
          // Construimos la ventana
         JFrame ventanaPrincipal = new JFrame("Gestionar facturas");
-
         // La ventana no se puede redimensionar
 	ventanaPrincipal.setResizable(false);
 	// Posición de la ventana
