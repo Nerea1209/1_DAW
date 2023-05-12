@@ -4,8 +4,14 @@
  */
 package IGU;
 
+import application.Main;
 import controllers.FacturaJpaController;
 import entities.Factura;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import javax.swing.JTable;
 
 /**
  *
@@ -18,7 +24,7 @@ public class PanelConsultar extends javax.swing.JPanel {
      */
     public PanelConsultar() {
         initComponents();
-        
+        createTable();
     }
 
     /**
@@ -41,6 +47,8 @@ public class PanelConsultar extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(26, 148, 37));
         jLabel1.setText("Consultar facturas");
 
+        jTable1.setBackground(new java.awt.Color(255, 255, 255));
+        jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -52,6 +60,8 @@ public class PanelConsultar extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setGridColor(new java.awt.Color(102, 102, 102));
+        jTable1.setName(""); // NOI18N
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -76,6 +86,21 @@ public class PanelConsultar extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void createTable(){
+        List<Factura> listaFacturas = Main.facturaJPA.findFacturaEntities();
+        int cols = 4;
+        String[][] facturas = new String[listaFacturas.size()][cols];
+        for (int i = 0; i < listaFacturas.size(); i++) {
+                facturas[i][0] = String.valueOf(listaFacturas.get(i).getCodigo());
+                facturas[i][1] = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(listaFacturas.get(i).getFechaEmision());
+                facturas[i][2] = listaFacturas.get(i).getDescripcion();
+                facturas[i][3] = String.valueOf(listaFacturas.get(i).getTotalImporte());
+        }
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                facturas, new String [] {
+                    "Código", "Fecha y hora de Emisión", "Descripción", "Importe total"
+                }));
+    }
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

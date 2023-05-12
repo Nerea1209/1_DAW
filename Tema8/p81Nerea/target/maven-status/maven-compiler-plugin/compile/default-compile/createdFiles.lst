@@ -1,5 +1,6 @@
-daw\nerea\modelo\Conexion.class
-daw\nerea\modelo\FacturaDAO.class
-daw\nerea\modelo\FacturaVO.class
-daw\nerea\aplicacion\Programa.class
-daw\nerea\modelo\IFactura.class
+daw/nerea/modelo/ConexionCasa.class
+daw/nerea/modelo/ConexionClase.class
+daw/nerea/modelo/IFactura.class
+daw/nerea/modelo/FacturaVO.class
+daw/nerea/aplicacion/Programa.class
+daw/nerea/modelo/FacturaDAO.class

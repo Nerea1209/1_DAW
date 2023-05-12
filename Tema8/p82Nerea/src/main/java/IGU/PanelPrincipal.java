@@ -4,6 +4,8 @@
  */
 package IGU;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author nerea
@@ -27,23 +29,23 @@ public class PanelPrincipal extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -54,12 +56,22 @@ public class PanelPrincipal extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/papel (1).png"))); // NOI18N
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
             }
         });
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 260, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/papel (1).png"))); // NOI18N
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 260, -1));
 
         jLabel3.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -76,6 +88,15 @@ public class PanelPrincipal extends javax.swing.JPanel {
         jLabel5.setText("factura");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 340, -1, -1));
 
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/papel (1).png"))); // NOI18N
+        jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 150, 260, -1));
+
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-lupa-48.png"))); // NOI18N
         add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 210, -1, -1));
 
@@ -83,6 +104,15 @@ public class PanelPrincipal extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Consultar");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/papel (1).png"))); // NOI18N
+        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 260, -1));
 
         jLabel9.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
@@ -104,9 +134,6 @@ public class PanelPrincipal extends javax.swing.JPanel {
         jLabel12.setText("Modificar");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 260, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/papel (1).png"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, -1, -1));
-
         jLabel13.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("factura");
@@ -127,14 +154,8 @@ public class PanelPrincipal extends javax.swing.JPanel {
         jLabel17.setText("por código");
         add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 360, -1, -1));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/papel (1).png"))); // NOI18N
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 150, -1, -1));
-
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-añadir-48.png"))); // NOI18N
         add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 70, 70));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/papel (1).png"))); // NOI18N
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/kisspng-green-wave-ce-glass-industries-green-wave-stoned-5b505f741eeae3.6082327315319939721267 (1).png"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(1200, 600));
@@ -152,8 +173,49 @@ public class PanelPrincipal extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        // TODO add your handling code here:
+         // Construimos la ventana
+        JFrame ventanaConsultar = new JFrame("Consultar facturas");
+
+        // La ventana no se puede redimensionar
+	ventanaConsultar.setResizable(false);
+	// Posición de la ventana
+    	ventanaConsultar.setLocationRelativeTo(null);
+	// Incluimos el panel en la ventana
+    	ventanaConsultar.add(new PanelConsultar());
+       // Ajusta el frame al contenido
+        ventanaConsultar.pack();
+        ventanaConsultar.setLocationRelativeTo(null);
+	// Hacemos visible la ventana
+    	ventanaConsultar.setVisible(true);
+	//Acción por defecto al pulsar el botón de cierre de la ventana
+    	ventanaConsultar.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // Construimos la ventana
+        JFrame ventanaConsultar = new JFrame("Insertar factura");
+        // La ventana no se puede redimensionar
+	ventanaConsultar.setResizable(false);
+	// Posición de la ventana
+    	ventanaConsultar.setLocationRelativeTo(null);
+	// Incluimos el panel en la ventana
+    	ventanaConsultar.add(new PanelInsertar());
+       // Ajusta el frame al contenido
+        ventanaConsultar.pack();
+        ventanaConsultar.setLocationRelativeTo(null);
+	// Hacemos visible la ventana
+    	ventanaConsultar.setVisible(true);
+	//Acción por defecto al pulsar el botón de cierre de la ventana
+    	ventanaConsultar.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel14MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
