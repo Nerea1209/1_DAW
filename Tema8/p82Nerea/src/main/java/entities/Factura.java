@@ -56,6 +56,13 @@ public class Factura implements Serializable {
         this.codigo = codigo;
     }
     
+    public Factura(int codigo, Date fechaEmision, String descripcion, double totalImporte) {
+        this.codigo = codigo;
+        this.fechaEmision = fechaEmision;
+        this.descripcion = descripcion;
+        this.totalImporte = totalImporte;
+    }
+    
     public Factura(Date fechaEmision, String descripcion, double totalImporte) {
         this.fechaEmision = fechaEmision;
         this.descripcion = descripcion;

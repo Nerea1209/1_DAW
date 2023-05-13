@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package IGU;
+package gui;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -16,6 +16,8 @@ public class PanelPrincipal extends javax.swing.JPanel {
     /**
      * Creates new form PanelPrincipal
      */
+    public static PanelEditar panelEditar = new PanelEditar();
+    
     public PanelPrincipal() {
         initComponents();
     }
@@ -77,7 +79,7 @@ public class PanelPrincipal extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("facturas");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Yrsa SemiBold", 3, 55)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(26, 148, 37));
@@ -87,7 +89,7 @@ public class PanelPrincipal extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("factura");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 340, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 330, -1, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/papel (1).png"))); // NOI18N
         jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -123,7 +125,7 @@ public class PanelPrincipal extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Liberation Sans", 1, 23)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("una");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
@@ -133,12 +135,12 @@ public class PanelPrincipal extends javax.swing.JPanel {
         jLabel12.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Modificar");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 260, -1, -1));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 270, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("factura");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, -1, -1));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
@@ -148,12 +150,12 @@ public class PanelPrincipal extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("una factura");
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 320, -1, -1));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 310, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("por código");
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 360, -1, -1));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 340, -1, -1));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-añadir-48.png"))); // NOI18N
         add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 70, 70));
@@ -178,15 +180,15 @@ public class PanelPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        crearVentana("Insertar factura", new PanelInsertar());
+        new PanelInsertar();
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        // TODO add your handling code here:
+        crearVentana("Editar / eliminar factura",panelEditar);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        // TODO add your handling code here:
+        new PanelBuscar();
     }//GEN-LAST:event_jLabel14MouseClicked
 
     public static JFrame crearVentana(String title, JPanel panel) {

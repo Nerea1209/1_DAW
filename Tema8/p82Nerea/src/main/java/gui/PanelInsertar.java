@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package IGU;
+package gui;
 
 import application.Main;
 import entities.Factura;
@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 /**
  *
@@ -21,8 +22,11 @@ public class PanelInsertar extends javax.swing.JPanel {
     /**
      * Creates new form PanelInsertar
      */
+    private JFrame ventana;
+    
     public PanelInsertar() {
         initComponents();
+        this.ventana = PanelPrincipal.crearVentana("Insertar factura", this);
     }
 
     /**
@@ -48,6 +52,7 @@ public class PanelInsertar extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(221, 249, 221));
+        setPreferredSize(new java.awt.Dimension(1200, 700));
 
         jLabel1.setFont(new java.awt.Font("Yrsa SemiBold", 3, 55)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(26, 148, 37));
@@ -68,7 +73,7 @@ public class PanelInsertar extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Laksaman", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-cancelar-85.png"))); // NOI18N
-        jLabel3.setText("Cancelar");
+        jLabel3.setText("Limpiar");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -164,7 +169,7 @@ public class PanelInsertar extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
@@ -176,7 +181,6 @@ public class PanelInsertar extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -201,8 +205,10 @@ public class PanelInsertar extends javax.swing.JPanel {
         try {
             Main.facturaJPA.create(new Factura(new SimpleDateFormat("dd/MM/yyyy").parse(jTextField3.getText()),
                     jTextField2.getText(), Double.parseDouble(jTextField1.getText())));
+            PanelPrincipal.crearVentana("Factura insertada con éxito.", new PanelInsertarOK());
+            ventana.dispose();
         } catch (Exception ex) {
-            System.out.println("Ya exciste esa factura");
+            PanelPrincipal.crearVentana("¡ERROR!.", new PanelInsertarNO());
         }
     }//GEN-LAST:event_jLabel7MouseClicked
 
