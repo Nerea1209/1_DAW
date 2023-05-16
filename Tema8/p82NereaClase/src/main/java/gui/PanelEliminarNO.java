@@ -13,6 +13,8 @@ public class PanelEliminarNO extends javax.swing.JPanel {
     /**
      * Creates new form PanelInsertarOK
      */
+    
+    // Panel de error al eliminar
     public PanelEliminarNO() {
         initComponents();
     }

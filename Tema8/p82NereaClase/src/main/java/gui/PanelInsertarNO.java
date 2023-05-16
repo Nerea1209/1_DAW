@@ -13,6 +13,8 @@ public class PanelInsertarNO extends javax.swing.JPanel {
     /**
      * Creates new form PanelInsertarOK
      */
+    
+    // Panel de error al insertar
     public PanelInsertarNO() {
         initComponents();
     }

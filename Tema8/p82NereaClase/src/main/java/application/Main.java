@@ -19,9 +19,9 @@ public class Main {
     public static FacturaJpaController facturaJPA = new FacturaJpaController(getEntityManager());
     
     public static void main(String[] args) {
-         // Construimos la ventana
+        // Construimos la ventana
         JFrame ventanaPrincipal = new JFrame("Gestionar facturas");
-        // La ventana no se puede redimensionar
+        // La ventana no se puede redimensionar- b);
 	ventanaPrincipal.setResizable(false);
 	// Posición de la ventana
     	ventanaPrincipal.setLocationRelativeTo(null);
@@ -42,7 +42,7 @@ public class Main {
         // Se obtiene a través del EntityManagerFactory y este a su vez se genera
         // a partir del nombre de la unidad de persistencia (fichero persistence.xml)
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("UnidadDePersistencia");
-//        EntityManager em = entityManagerFactory.createEntityManager();
+        // EntityManager em = entityManagerFactory.createEntityManager();
         return entityManagerFactory;
     }
     

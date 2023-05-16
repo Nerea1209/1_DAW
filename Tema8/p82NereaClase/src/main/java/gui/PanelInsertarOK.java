@@ -13,6 +13,8 @@ public class PanelInsertarOK extends javax.swing.JPanel {
     /**
      * Creates new form PanelInsertarOK
      */
+    
+    // Panel de que se ha insertado correctamente
     public PanelInsertarOK() {
         initComponents();
     }

@@ -26,13 +26,13 @@ public class FacturaJpaController implements Serializable {
         this.emf = emf;
     }
     
-    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    // INSERT
     public void create(Factura factura) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
@@ -52,6 +52,7 @@ public class FacturaJpaController implements Serializable {
         }
     }
 
+    // UPDATE
     public void edit(Factura factura) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -75,6 +76,7 @@ public class FacturaJpaController implements Serializable {
         }
     }
 
+    // DELETE
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -96,14 +98,17 @@ public class FacturaJpaController implements Serializable {
         }
     }
 
+    // SELECT *
     public List<Factura> findFacturaEntities() {
         return findFacturaEntities(true, -1, -1);
     }
 
+    // SELECT * 
     public List<Factura> findFacturaEntities(int maxResults, int firstResult) {
         return findFacturaEntities(false, maxResults, firstResult);
     }
 
+    // SELECT *
     private List<Factura> findFacturaEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
@@ -120,6 +125,7 @@ public class FacturaJpaController implements Serializable {
         }
     }
 
+    // SELECT * FROM FACTURA WHERE ID =
     public Factura findFactura(int id) {
         EntityManager em = getEntityManager();
         try {
@@ -129,6 +135,7 @@ public class FacturaJpaController implements Serializable {
         }
     }
 
+    // COUNT *
     public int getFacturaCount() {
         EntityManager em = getEntityManager();
         try {

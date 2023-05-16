@@ -16,6 +16,8 @@ public class PanelPrincipal extends javax.swing.JPanel {
     /**
      * Creates new form PanelPrincipal
      */
+    
+    // Para poder acceder desde PanelEditar1
     public static PanelEditar panelEditar = new PanelEditar();
     
     public PanelPrincipal() {
@@ -174,19 +176,24 @@ public class PanelPrincipal extends javax.swing.JPanel {
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-actualizar-24.png"))); // NOI18N
         add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    // Botón "Consultar facturas"
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // Abrimos ventana de PanelConsultar
         crearVentana("Consultar facturas", new PanelConsultar());
     }//GEN-LAST:event_jLabel6MouseClicked
 
+    // Botón "Insertar una factura"
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         new PanelInsertar();
     }//GEN-LAST:event_jLabel7MouseClicked
 
+    // Botón "Modificar o eliminar factura"
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         crearVentana("Editar / eliminar factura",panelEditar);
     }//GEN-LAST:event_jLabel4MouseClicked
 
+    // Botón "Buscar una factura por código"
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         new PanelBuscar();
     }//GEN-LAST:event_jLabel14MouseClicked

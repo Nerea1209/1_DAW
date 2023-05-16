@@ -5,13 +5,9 @@
 package gui;
 
 import application.Main;
-import controllers.FacturaJpaController;
 import entities.Factura;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import javax.swing.JTable;
 
 /**
  *
@@ -24,7 +20,7 @@ public class PanelConsultar extends javax.swing.JPanel {
      */
     public PanelConsultar() {
         initComponents();
-        createTable();
+        createTable(); // Añadimos datos a la tabla
     }
 
     /**
@@ -77,15 +73,24 @@ public class PanelConsultar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createTable(){
+        // Guardamos las facturas en una lista
         List<Factura> listaFacturas = Main.facturaJPA.findFacturaEntities();
-        int cols = 4;
+        int cols = 4; // La tabla tiene 4 columnas
+        
+        // Los datos de la tabla son:
         String[][] facturas = new String[listaFacturas.size()][cols];
         for (int i = 0; i < listaFacturas.size(); i++) {
-                facturas[i][0] = String.valueOf(listaFacturas.get(i).getCodigo());
-                facturas[i][1] = new SimpleDateFormat("dd/MM/yyyy").format(listaFacturas.get(i).getFechaEmision());
-                facturas[i][2] = listaFacturas.get(i).getDescripcion();
-                facturas[i][3] = String.valueOf(listaFacturas.get(i).getTotalImporte());
+            // Código
+            facturas[i][0] = String.valueOf(listaFacturas.get(i).getCodigo());
+            // Fecha de emisión
+            facturas[i][1] = new SimpleDateFormat("dd/MM/yyyy").format(listaFacturas.get(i).getFechaEmision());
+            // Descripción
+            facturas[i][2] = listaFacturas.get(i).getDescripcion();
+            // Importe total
+            facturas[i][3] = String.valueOf(listaFacturas.get(i).getTotalImporte());
         }
+        
+        // Añadimos los datos a la tabla y le damos los nombres a las columnas
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 facturas, new String [] {
                     "Código", "Fecha y hora de Emisión", "Descripción", "Importe total"

@@ -22,14 +22,21 @@ public class PanelEncontrada extends javax.swing.JPanel {
     private Factura facturaEncontrada;
     /**
      * Creates new form PanelEditar1
+     * @param facturaEncontrada
      */
     public PanelEncontrada(Factura facturaEncontrada) {
         initComponents();
         this.facturaEncontrada = facturaEncontrada;
+        // Mostramos los datos de la factura buscada
+        // El código se muestra en el título
         jLabel1.setText(String.valueOf(this.facturaEncontrada.getCodigo()));
+        // Fecha de emisión
         jTextField3.setText(new SimpleDateFormat("dd/MM/yyyy").format(facturaEncontrada.getFechaEmision()));
+        // Descripción
         jTextField2.setText(this.facturaEncontrada.getDescripcion());
+        // Importe total
         jTextField1.setText(String.valueOf(this.facturaEncontrada.getTotalImporte()));
+        // Metemos el panel en una ventana
         this.ventana = PanelPrincipal.crearVentana("Factura con código " + this.facturaEncontrada.getCodigo(), this);
     }
 
@@ -136,8 +143,9 @@ public class PanelEncontrada extends javax.swing.JPanel {
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 39, 518, 87));
     }// </editor-fold>//GEN-END:initComponents
 
+    // Botón OK
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        ventana.dispose();
+        ventana.dispose(); // Cerramos la ventana
     }//GEN-LAST:event_jLabel3MouseClicked
 
 

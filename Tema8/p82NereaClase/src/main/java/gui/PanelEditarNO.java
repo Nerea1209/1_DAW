@@ -13,6 +13,8 @@ public class PanelEditarNO extends javax.swing.JPanel {
     /**
      * Creates new form PanelInsertarOK
      */
+    
+    // Panel de mensaje de error
     public PanelEditarNO() {
         initComponents();
     }

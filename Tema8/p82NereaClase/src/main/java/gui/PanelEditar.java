@@ -9,10 +9,6 @@ import controllers.exceptions.NonexistentEntityException;
 import entities.Factura;
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,6 +20,7 @@ public class PanelEditar extends javax.swing.JPanel {
     /**
      * Creates new form PanelEditar
      */
+    
     private List<Factura> listaFacturas;
 
     public PanelEditar() {
@@ -111,60 +108,66 @@ public class PanelEditar extends javax.swing.JPanel {
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 320, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    // Botón "Editar factura"
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // Abrimos un panel con los datos a editar
         new PanelEditar1(listaFacturas.get(jTable1.getSelectedRow()));
     }//GEN-LAST:event_jLabel4MouseClicked
 
+    // Botón "Eliminar factura"
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         try {
+            // Ejecutamos destroy con el codigo de la factura seleccionada
             Main.facturaJPA.destroy(listaFacturas.get(jTable1.getSelectedRow()).getCodigo());
+            // Abrimos un panel de que se ha eliminado correctamente
             PanelPrincipal.crearVentana("Factura eliminada con éxito.", new PanelEliminarOK());
+            // Actualizamos los datos de la tabla para que salga eliminada
             actualizarTabla();
         } catch (NonexistentEntityException ex) {
+            // Si no se puede eliminar, abre un panel de error
             PanelPrincipal.crearVentana("¡ERROR!", new PanelEliminarNO());
             
         }
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    // Método para crear la tabla para que sus campos no sean editables
+    // pero sí se pueda seleccionar
+    // En panel consultar lo tengo disabled para que no se pueda hacer ninguna de las dos
     private List<Factura> createTable() {
+        // Guardo en una lista las facturas de la bd
         List<Factura> listaFacturas = Main.facturaJPA.findFacturaEntities();
-        int cols = 4;
+        int cols = 4; // La tabla tiene 4 columnas
+        
+        // Los datos de la tabla son:
         String[][] facturas = new String[listaFacturas.size()][cols];
         for (int i = 0; i < listaFacturas.size(); i++) {
+            // Código
             facturas[i][0] = String.valueOf(listaFacturas.get(i).getCodigo());
+            // Fecha de emisión
             facturas[i][1] = new SimpleDateFormat("dd/MM/yyyy").format(listaFacturas.get(i).getFechaEmision());
+            // Descripción
             facturas[i][2] = listaFacturas.get(i).getDescripcion();
+            // Importe total
             facturas[i][3] = String.valueOf(listaFacturas.get(i).getTotalImporte());
         }
 
+        // Le pasamos los datos y los nombres de las columnas
         DefaultTableModel modelo = new DefaultTableModel(facturas, new String[]{
                     "Código", "Fecha y hora de Emisión", "Descripción", "Importe total"}) {
             @Override
+            // Sobreescribimos el método para que no se puedan editar las celdas
             public boolean isCellEditable(int row, int column) {
                 return false; // hacer que todas las celdas no sean editables
             }
         };
-        
 
-        jTable1.setModel(modelo);
+        jTable1.setModel(modelo); // Añadimos el modelo a la tabla
         return listaFacturas;
-    }
-
-    public boolean isCellEditable(int row, int column) {
-        // Hacer que todas las celdas no sean editables
-        return false;
     }
     
     public void actualizarTabla () {
         listaFacturas = createTable(); // Actualizamos la tabla
     }
-
-    public void setListaFacturas(List<Factura> listaFacturas) {
-        this.listaFacturas = listaFacturas;
-    }
-    
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

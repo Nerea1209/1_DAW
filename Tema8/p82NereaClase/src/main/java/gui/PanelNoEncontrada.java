@@ -13,6 +13,8 @@ public class PanelNoEncontrada extends javax.swing.JPanel {
     /**
      * Creates new form PanelInsertarOK
      */
+    
+    // Panel de que no se ha encontrado la factura a buscar
     public PanelNoEncontrada() {
         initComponents();
     }

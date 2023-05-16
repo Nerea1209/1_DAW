@@ -7,10 +7,6 @@ package gui;
 import application.Main;
 import entities.Factura;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -26,6 +22,7 @@ public class PanelInsertar extends javax.swing.JPanel {
     
     public PanelInsertar() {
         initComponents();
+        // Metemos el panel en una ventana
         this.ventana = PanelPrincipal.crearVentana("Insertar factura", this);
     }
 
@@ -201,18 +198,25 @@ public class PanelInsertar extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // Botón añadir
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         try {
+            // Ejecutamos create con los datos de los campos de texto
             Main.facturaJPA.create(new Factura(new SimpleDateFormat("dd/MM/yyyy").parse(jTextField3.getText()),
                     jTextField2.getText(), Double.parseDouble(jTextField1.getText())));
+            // Abrimos ventana de que se ha insertado correctamente
             PanelPrincipal.crearVentana("Factura insertada con éxito.", new PanelInsertarOK());
+            // Y cerramos la ventana para que vaya directamente al menú principal
             ventana.dispose();
         } catch (Exception ex) {
+            // Si no, muestra una ventana de error
             PanelPrincipal.crearVentana("¡ERROR!.", new PanelInsertarNO());
         }
     }//GEN-LAST:event_jLabel7MouseClicked
 
+    // Botón Limpiar
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // Elimina el contenido de los campos de textos
         jTextField3.setText("");
         jTextField2.setText("");
         jTextField1.setText("");

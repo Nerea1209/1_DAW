@@ -13,6 +13,8 @@ public class PanelEditarOK extends javax.swing.JPanel {
     /**
      * Creates new form PanelInsertarOK
      */
+    
+    // Panel de que se ha editado correctamente
     public PanelEditarOK() {
         initComponents();
     }

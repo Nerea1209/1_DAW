@@ -39,21 +39,17 @@ public class Factura implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "codigo")
-    private int codigo;
+    private int codigo; // Se autoincrementa
     @Column(name = "fechaEmision")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaEmision;
     @Column(name = "descripcion")
     private String descripcion;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "totalImporte")
     private double totalImporte;
 
+    // Constructores
     public Factura() {
-    }
-
-    public Factura(int codigo) {
-        this.codigo = codigo;
     }
     
     public Factura(int codigo, Date fechaEmision, String descripcion, double totalImporte) {
@@ -68,7 +64,8 @@ public class Factura implements Serializable {
         this.descripcion = descripcion;
         this.totalImporte = totalImporte;
     }
-
+    
+    // Getters and setters
     public int getCodigo() {
         return codigo;
     }
@@ -101,27 +98,13 @@ public class Factura implements Serializable {
         this.totalImporte = totalImporte;
     }
 
+    // Hash and equals
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 17 * hash + this.codigo;
         return hash;
     }
-
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (this == obj) {
-//            return true;
-//        }
-//        if (obj == null) {
-//            return false;
-//        }
-//        if (getClass() != obj.getClass()) {
-//            return false;
-//        }
-//        final Factura other = (Factura) obj;
-//        return this.codigo == other.codigo;
-//    }
 
     @Override
     public boolean equals(Object object) {
@@ -133,6 +116,7 @@ public class Factura implements Serializable {
         return this.codigo == other.codigo;
     }
 
+    // toString
     @Override
     public String toString() {
         return "entities.Factura[ codigo=" + codigo + " ]";

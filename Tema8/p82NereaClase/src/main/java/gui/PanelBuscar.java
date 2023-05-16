@@ -6,9 +6,6 @@ package gui;
 
 import application.Main;
 import entities.Factura;
-import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -24,6 +21,7 @@ public class PanelBuscar extends javax.swing.JPanel {
      */
     public PanelBuscar() {
         initComponents();
+        // El panel lo insertamos en una ventana
         this.ventana = PanelPrincipal.crearVentana("Buscar factura", this);
     }
 
@@ -82,12 +80,17 @@ public class PanelBuscar extends javax.swing.JPanel {
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    // Botón "Buscar" con lupa
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         try {
+            // Ejecutamos el método find, pasándole el texto del textfield
             Factura facturaEncontrada = Main.facturaJPA.findFactura(Integer.parseInt(jTextField3.getText()));
+            // Mostramos la información de la factura buscada
             new PanelEncontrada(facturaEncontrada);
+            // Y cerramos este panel, para que vuelva solo al panel principal
             this.ventana.dispose();
         } catch (Exception ex) {
+            // Si da error, mostramos una ventana de error
             PanelPrincipal.crearVentana("¡Oh no!", new PanelNoEncontrada());
         }
     }//GEN-LAST:event_jLabel7MouseClicked

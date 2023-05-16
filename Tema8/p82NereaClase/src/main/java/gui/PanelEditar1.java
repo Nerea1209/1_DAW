@@ -23,12 +23,18 @@ public class PanelEditar1 extends javax.swing.JPanel {
     /**
      * Creates new form PanelEditar1
      */
+    
     public PanelEditar1(Factura facturaSeleccionada) {
-        this.facturaSeleccionada = facturaSeleccionada;
+        this.facturaSeleccionada = facturaSeleccionada; 
         initComponents();
+        // Mostramos los datos que tenía la factura, por si solo quiere modificar algún campo
+        // Fecha de emisión
         jTextField3.setText(new SimpleDateFormat("dd/MM/yyyy").format(this.facturaSeleccionada.getFechaEmision()));
+        // Descripción
         jTextField2.setText(this.facturaSeleccionada.getDescripcion());
+        // Importe total
         jTextField1.setText(String.valueOf(this.facturaSeleccionada.getTotalImporte()));
+        // Metemos este panel en una ventana
         this.ventana = PanelPrincipal.crearVentana("Editar factura", this);
     }
 
@@ -137,20 +143,28 @@ public class PanelEditar1 extends javax.swing.JPanel {
         });
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 560, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    // Botón confirmar
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         try {
+            // Ejecutamos edit, con los datos insertados en los campos de texto
             Main.facturaJPA.edit(new Factura(facturaSeleccionada.getCodigo(), new SimpleDateFormat("dd/MM/yyyy").parse(jTextField3.getText()),
                     jTextField2.getText(), Double.parseDouble(jTextField1.getText())));
+            // Abrimos una ventana de edición exitosa
             PanelPrincipal.crearVentana("Factura editada con éxito.", new PanelEditarOK());
+            // Actualizamos la tabla para que salga la factura con los datos editados
             PanelPrincipal.panelEditar.actualizarTabla();
+            // Y cerramos la centana para que después de editarlo salga directamente el menú principal
             this.ventana.dispose();
         } catch (Exception ex) {
+            // Si no, muestra un mensaje de error
             PanelPrincipal.crearVentana("¡ERROR!", new PanelEditarNO());
         }
     }//GEN-LAST:event_jLabel7MouseClicked
 
+    // Botón limpiar
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // Vacía los datos
         jTextField3.setText("");
         jTextField2.setText("");
         jTextField1.setText("");
