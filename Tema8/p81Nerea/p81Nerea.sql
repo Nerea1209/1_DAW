@@ -9,4 +9,4 @@ CREATE TABLE factura (
   descripcion varchar(60) DEFAULT NULL,
   totalImporte decimal(7, 2) DEFAULT NULL,
   constraint pk_factura primary key (codigo)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
