@@ -23,9 +23,9 @@ public class CalculadoraTest {
         System.out.println("sumar");
         double a = 4.98;
         double b = 3.56;
-        String expResult = "8.54";
-        String result = Calculadora.sumar(a, b);
-        assertEquals(expResult, result);
+        String resultadoEsperado = "8,54";
+        String resultado = Calculadora.sumar(a, b);
+        assertEquals(resultadoEsperado, resultado);
     }
 
     /**
@@ -36,9 +36,9 @@ public class CalculadoraTest {
         System.out.println("restar");
         double a = 10.98;
         double b = 9.3;
-        String expResult = "1.68";
-        String result = Calculadora.restar(a, b);
-        assertEquals(expResult, result);
+        String resultadoEsperado = "1,69";
+        String resultado = Calculadora.restar(a, b);
+        assertEquals(resultadoEsperado, resultado);
         
     }
 
@@ -50,9 +50,9 @@ public class CalculadoraTest {
         System.out.println("dividir");
         double a = 2.0;
         double b = 2.0;
-        String expResult = "1.00";
-        String result = Calculadora.dividir(a, b);
-        assertEquals(expResult, result);
+        String resultadoEsperado = "1,00";
+        String resultado = Calculadora.dividir(a, b);
+        assertEquals(resultadoEsperado, resultado);
     }
 
     /**
@@ -63,9 +63,9 @@ public class CalculadoraTest {
         System.out.println("multiplicar");
         double a = 4.0;
         double b = 5.0;
-        String expResult = "20.00";
-        String result = Calculadora.multiplicar(a, b);
-        assertEquals(expResult, result);
+        String resultadoEsperado = "278,00";
+        String resultado = Calculadora.multiplicar(a, b);
+        assertEquals(resultadoEsperado, resultado);
     }
     
 }
